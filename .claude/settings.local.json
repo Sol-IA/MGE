@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:mygreenevent.fr)",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/pages?per_page=20\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/pages/49\")",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/pages/58\")",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/pages/62\")",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/pages/11\")",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/pages/1860\")",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/pages/411\")",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/posts?per_page=30&_fields=id,title,slug,date,excerpt,link\")",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/media?per_page=30&_fields=id,source_url,alt_text,title\")",
+      "Bash(python3 -c \":*)",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/media?per_page=50&search=AME&_fields=id,source_url,alt_text\")",
+      "Bash(curl -s \"https://mygreenevent.fr/wp-json/wp/v2/media?per_page=50&search=logo&_fields=id,source_url,alt_text\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx --version)",
+      "Bash(npm list:*)",
+      "Bash(gh auth:*)",
+      "Bash(brew list:*)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//usr/local/bin/**)",
+      "Read(//opt/**)",
+      "Bash(mdfind \"kMDItemFSName == ''''gh''''\")",
+      "Bash(git --version)",
+      "Bash(curl -sL https://api.github.com/repos/cli/cli/releases/latest)",
+      "Bash(curl -sL \"https://github.com/cli/cli/releases/download/v2.89.0/gh_2.89.0_macOS_arm64.zip\" -o /tmp/gh.zip)",
+      "Bash(unzip -o /tmp/gh.zip -d /tmp/gh_install)",
+      "Bash(mkdir -p ~/bin)",
+      "Bash(cp /tmp/gh_install/gh_2.89.0_macOS_arm64/bin/gh ~/bin/gh)",
+      "Bash(chmod +x ~/bin/gh)",
+      "Bash(export PATH=\"$HOME/bin:$PATH\")",
+      "Bash(~/bin/gh --version)"
+    ]
+  }
+}
