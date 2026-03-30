@@ -1034,6 +1034,71 @@ h4 {
   gap: var(--space-lg);
 }
 
+.blog-grid .card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-grid .card__title a:hover {
+  color: var(--color-primary);
+}
+
+/* --- Article page --- */
+.article-content {
+  font-size: var(--text-base);
+  line-height: 1.9;
+  color: var(--color-text);
+}
+
+.article-hero {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.article-content .lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-light);
+  line-height: 1.9;
+  margin-bottom: var(--space-xl);
+}
+
+.article-content h2 {
+  font-size: var(--text-2xl);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+.article-content p {
+  margin-bottom: var(--space-md);
+}
+
+.article-content ul {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-md);
+}
+
+.article-content ul li {
+  position: relative;
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+.article-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-light);
+}
+
 /* --- Contact info --- */
 .contact-info {
   display: flex;
