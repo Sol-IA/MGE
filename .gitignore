@@ -1,2 +1,6 @@
 .DS_Store
 .claude/
+
+# Fichiers avec clés API — ne jamais pousser sur GitHub
+subscribe.php
+send.php

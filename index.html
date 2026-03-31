@@ -318,7 +318,7 @@
             <li>✓ Conseils de prestataires engagés en Provence</li>
             <li>✓ Checklist imprimable incluse</li>
           </ul>
-          <form class="leadmagnet__form" id="lm-form" action="#" method="POST">
+          <form class="leadmagnet__form" id="lm-form" action="subscribe.php" method="POST">
             <div class="leadmagnet__input-wrap">
               <input type="email" name="email" placeholder="Votre adresse email" required class="leadmagnet__input">
               <button type="submit" class="btn btn--primary leadmagnet__btn">Recevoir le guide</button>
@@ -399,5 +399,18 @@
 
   <script src="js/main.js"></script>
   <script src="js/cookie.js"></script>
+  <script>
+    (function() {
+      var lm = new URLSearchParams(window.location.search).get('lm');
+      if (!lm) return;
+      var form = document.getElementById('lm-form');
+      var success = document.getElementById('lm-success');
+      if (lm === 'ok' && form && success) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    })();
+  </script>
 </body>
 </html>
