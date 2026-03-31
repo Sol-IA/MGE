@@ -45,76 +45,152 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Articles de blog -->
+  <!-- Articles de blog — 2026 -->
   <url>
     <loc>https://mygreenevent.fr/blog/articles/fleurs-locales-durables.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mygreenevent.fr/blog/articles/mariage-zero-dechet.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/blog/articles/budget-mariage-eco.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-01-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Articles de blog — 2025 -->
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/metiers-caches-wedding-planner.html</loc>
+    <lastmod>2025-12-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mygreenevent.fr/blog/articles/coordination-jour-j.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mygreenevent.fr/blog/articles/mariage-vegetarien-vegetalien.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://mygreenevent.fr/blog/articles/meilleurs-outils-organiser-mariage.html</loc>
+    <lastmod>2025-12-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/blog/articles/mariage-ethique-prestataires.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/hopono-lieu-mariage-provence.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/coordination-jour-j.html</loc>
+    <lastmod>2025-07-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/blog/articles/reduire-empreinte-carbone-mariage.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2025-07-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/blog/articles/ceremonie-laique-vs-religieuse.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2025-07-10</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mygreenevent.fr/blog/articles/hopono-lieu-mariage-provence.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://mygreenevent.fr/blog/articles/mariage-vegetarien-vegetalien.html</loc>
+    <lastmod>2025-07-02</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/blog/articles/10-erreurs-mariage-eco.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/mariage-zero-dechet.html</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/les-etapes-essentielles-pour-une-planification-de-mariage-reussie.html</loc>
+    <lastmod>2025-04-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/cadeaux-dinvites-eco-responsables.html</loc>
+    <lastmod>2025-03-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/les-tendances-de-mariage-eco-responsables-pour-2025-un-mariage-plus-vert-et-plus-ethique.html</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Articles de blog — 2021 -->
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/mariage-green-tenue-mariage-eco-responsable.html</loc>
+    <lastmod>2021-01-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Articles de blog — 2020 -->
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/adopter-le-zero-dechet-a-aix-en-provence.html</loc>
+    <lastmod>2020-07-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Articles de blog — 2018 -->
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/mariage-green-decoration-fleurs.html</loc>
+    <lastmod>2018-03-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mygreenevent.fr/blog/articles/meilleurs-outils-organiser-mariage.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://mygreenevent.fr/blog/articles/mariage-green-faire-part.html</loc>
+    <lastmod>2018-02-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mygreenevent.fr/blog/articles/metiers-caches-wedding-planner.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://mygreenevent.fr/blog/articles/engagements-wedding-planner.html</loc>
+    <lastmod>2018-02-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Articles de blog — 2017 -->
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/mariage-green-repas.html</loc>
+    <lastmod>2017-12-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/mariage-green-lieu-reception.html</loc>
+    <lastmod>2017-06-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mygreenevent.fr/blog/articles/vrai-faux-wedding-planner.html</loc>
+    <lastmod>2017-01-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
