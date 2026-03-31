@@ -425,6 +425,9 @@ h4 {
 
 .header__cta {
   margin-left: var(--space-sm);
+  padding: 0.7rem 1.6rem !important;
+  font-size: var(--text-sm) !important;
+  line-height: 1.2;
 }
 
 /* Le bouton Contact ne doit pas avoir le soulignement animé */
