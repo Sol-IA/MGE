@@ -369,14 +369,14 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 100px;
   max-width: var(--container-wide);
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
 
 .header__logo img {
-  height: 70px;
+  height: 90px;
   width: auto;
 }
 
