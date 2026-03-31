@@ -380,6 +380,13 @@ h4 {
   width: auto;
 }
 
+.logo-footer {
+  height: 50px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
 .header__nav {
   display: flex;
   align-items: center;
