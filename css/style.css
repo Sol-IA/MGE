@@ -423,18 +423,24 @@ h4 {
   color: var(--color-primary);
 }
 
-.header__cta {
+/* Bouton Contact dans le nav — sélecteur haute spécificité (0,2,1) */
+.header__nav a.header__cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   margin-left: var(--space-sm);
-  padding: 0.7rem 1.6rem !important;
+  padding: 0.75rem 1.75rem !important;
   font-size: var(--text-sm) !important;
-  line-height: 1.2;
+  line-height: 1 !important;
+  color: #fff !important;
+  position: relative;
 }
 
 /* Le bouton Contact ne doit pas avoir le soulignement animé */
-.header__cta::after {
+.header__nav a.header__cta::after {
   display: none !important;
 }
-.header__cta:hover {
+.header__nav a.header__cta:hover {
   color: #fff !important;
 }
 
