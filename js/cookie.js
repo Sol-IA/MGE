@@ -1,25 +1,43 @@
 /**
- * Bannière cookie RGPD — My Green Event
- * GA4 chargé uniquement après consentement explicite (CNIL)
+ * Bannière cookie RGPD + Google Tag Manager Consent Mode v2
+ * My Green Event — GTM-T9FZDWHT
  */
 
-// ── Remplacer par l'ID GA4 réel de Coralie ──────────────────────
-var GA_ID = 'G-XXXXXXXXXX';
-// ────────────────────────────────────────────────────────────────
-
+var GTM_ID      = 'GTM-T9FZDWHT';
 var STORAGE_KEY = 'mge_cookie_consent';
 
-function loadGA4() {
-  if (GA_ID === 'G-XXXXXXXXXX') return; // pas encore configuré
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-  document.head.appendChild(s);
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  window.gtag = gtag;
-  gtag('js', new Date());
-  gtag('config', GA_ID, { anonymize_ip: true });
+// ── Consent Mode v2 : défaut REFUSÉ avant tout consentement ─────
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('consent', 'default', {
+  analytics_storage:  'denied',
+  ad_storage:         'denied',
+  ad_user_data:       'denied',
+  ad_personalization: 'denied',
+  wait_for_update:    500
+});
+
+// ── Chargement GTM ───────────────────────────────────────────────
+(function(w, d, s, l, i) {
+  w[l] = w[l] || [];
+  w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+  var f = d.getElementsByTagName(s)[0];
+  var j = d.createElement(s);
+  var dl = l !== 'dataLayer' ? '&l=' + l : '';
+  j.async = true;
+  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+  f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', GTM_ID);
+
+// ── Fonctions de consentement ────────────────────────────────────
+function grantConsent() {
+  gtag('consent', 'update', {
+    analytics_storage:  'granted',
+    ad_storage:         'denied',  // pub refusée par défaut (modifier si besoin)
+    ad_user_data:       'denied',
+    ad_personalization: 'denied'
+  });
+  dataLayer.push({ event: 'cookie_consent_granted' });
 }
 
 function hideBanner() {
@@ -30,7 +48,7 @@ function hideBanner() {
 function onAccept() {
   localStorage.setItem(STORAGE_KEY, 'accepted');
   hideBanner();
-  loadGA4();
+  grantConsent();
 }
 
 function onRefuse() {
@@ -41,12 +59,14 @@ function onRefuse() {
 function showBanner() {
   var banner = document.createElement('div');
   banner.id = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Gestion des cookies');
   banner.innerHTML = [
     '<div class="cb__inner">',
     '  <p class="cb__text">',
-    '    Ce site utilise Google Analytics pour mesurer son audience.',
-    '    Vos données restent anonymisées et ne sont jamais revendues.',
-    '    <a href="mentions-legales.html">En savoir plus</a>',
+    '    Ce site utilise des cookies de mesure d\'audience (Google Analytics) pour améliorer votre expérience.',
+    '    Vos données sont anonymisées et ne sont jamais revendues.',
+    '    <a href="/mentions-legales.html">En savoir plus</a>',
     '  </p>',
     '  <div class="cb__actions">',
     '    <button id="cb-refuse" class="cb__btn cb__btn--outline">Refuser</button>',
@@ -68,9 +88,7 @@ function showBanner() {
     '  display:flex;align-items:center;justify-content:space-between;',
     '  gap:1.5rem;flex-wrap:wrap;',
     '}',
-    '.cb__text{',
-    '  font-size:.8125rem;color:#666;line-height:1.5;flex:1;margin:0;',
-    '}',
+    '.cb__text{font-size:.8125rem;color:#666;line-height:1.5;flex:1;margin:0;}',
     '.cb__text a{color:#5c8a3c;text-decoration:underline;}',
     '.cb__actions{display:flex;gap:.625rem;flex-shrink:0;}',
     '.cb__btn{',
@@ -80,7 +98,7 @@ function showBanner() {
     '}',
     '.cb__btn--outline{background:#fff;color:#5c8a3c;}',
     '.cb__btn--outline:hover{background:#f0f7ea;}',
-    '.cb__btn--accept{background:#5c8a3c;color:#fff;border-color:#5c8a3c;}',
+    '.cb__btn--accept{background:#5c8a3c;color:#fff;}',
     '.cb__btn--accept:hover{background:#4a7230;}',
     '@media(max-width:600px){',
     '  .cb__inner{flex-direction:column;align-items:flex-start;}',
@@ -91,7 +109,6 @@ function showBanner() {
 
   document.head.appendChild(style);
   document.body.appendChild(banner);
-
   document.getElementById('cb-accept').addEventListener('click', onAccept);
   document.getElementById('cb-refuse').addEventListener('click', onRefuse);
 }
@@ -100,14 +117,12 @@ function showBanner() {
 (function init() {
   var consent = localStorage.getItem(STORAGE_KEY);
   if (consent === 'accepted') {
-    loadGA4();
+    grantConsent();
   } else if (!consent) {
-    // Afficher la bannière au premier passage
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', showBanner);
     } else {
       showBanner();
     }
   }
-  // 'refused' → on ne fait rien
 })();
