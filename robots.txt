@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /send.php
+Disallow: /blog/articles/*.php
+
+Sitemap: https://mygreenevent.fr/sitemap.xml

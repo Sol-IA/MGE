@@ -52,7 +52,14 @@
           <h2 style="font-size:var(--text-2xl);margin-bottom:0.5rem;">Envoyez-moi un message</h2>
           <p style="color:var(--color-text-light);margin-bottom:var(--space-lg);font-size:var(--text-sm);">Remplissez le formulaire ci-dessous et je vous repondrai sous 48h. Premier echange gratuit et sans engagement.</p>
 
+          <!-- Bannière statut (remplie par JS selon l'URL) -->
+          <div id="form-statut" style="display:none;padding:1rem 1.25rem;border-radius:var(--radius-md);margin-bottom:var(--space-md);font-size:var(--text-sm);font-weight:500;"></div>
+
           <form action="send.php" method="POST">
+            <!-- Honeypot anti-spam (invisible) -->
+            <div style="display:none;" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <div class="form__group">
               <label class="form__label" for="nom">Nom complet *</label>
               <input class="form__input" type="text" id="nom" name="nom" required placeholder="Votre nom et prenom">
@@ -198,5 +205,27 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var p = new URLSearchParams(window.location.search).get('statut');
+      if (!p) return;
+      var el = document.getElementById('form-statut');
+      if (!el) return;
+      if (p === 'ok') {
+        el.textContent = '✓ Votre message a bien été envoyé ! Je vous répondrai sous 48h.';
+        el.style.background = '#f0f7ea';
+        el.style.color = '#3d7a20';
+        el.style.border = '1px solid #b8d89a';
+        document.querySelector('form').style.display = 'none';
+      } else {
+        el.textContent = '✗ Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.';
+        el.style.background = '#fdf0f0';
+        el.style.color = '#b03030';
+        el.style.border = '1px solid #e8b8b8';
+      }
+      el.style.display = 'block';
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })();
+  </script>
 </body>
 </html>
