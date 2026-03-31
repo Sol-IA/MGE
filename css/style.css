@@ -427,6 +427,14 @@ h4 {
   margin-left: var(--space-sm);
 }
 
+/* Le bouton Contact ne doit pas avoir le soulignement animé */
+.header__cta::after {
+  display: none !important;
+}
+.header__cta:hover {
+  color: #fff !important;
+}
+
 /* Mobile menu toggle */
 .menu-toggle {
   display: none;
@@ -480,7 +488,7 @@ h4 {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(45,45,45,0.55) 0%, rgba(45,45,45,0.25) 50%, rgba(123,168,84,0.15) 100%);
+  background: linear-gradient(135deg, rgba(20,30,12,0.72) 0%, rgba(30,42,18,0.50) 50%, rgba(40,60,20,0.20) 100%);
 }
 
 .hero__content {
@@ -509,13 +517,14 @@ h4 {
   color: var(--color-white);
   font-size: var(--text-5xl);
   margin-bottom: var(--space-md);
-  text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.9);
 }
 
 .hero p {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.95);
   font-size: var(--text-lg);
   line-height: 1.8;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.65);
   margin-bottom: var(--space-lg);
   max-width: 550px;
 }
@@ -994,10 +1003,9 @@ h4 {
 .press-logos {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
   align-items: center;
   justify-content: center;
-  opacity: 0.6;
 }
 
 .press-logos span {
@@ -1006,6 +1014,28 @@ h4 {
   color: var(--color-text-light);
   font-weight: 600;
 }
+
+/* Nouveau style : logos cliquables */
+.press-logo {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-muted);
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: color 0.3s, filter 0.3s, opacity 0.3s;
+  text-decoration: none;
+}
+.press-logo:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+/* Couleurs de marque au survol */
+.press-logo:not([class*="--"]):hover        { color: #8B1A2C; }   /* Madame Figaro — bordeaux */
+.press-logo--franceinfo:hover               { color: #003f8e; }   /* France Info — bleu */
+.press-logo--rtl:hover                      { color: #e2001a; }   /* RTL — rouge */
+.press-logo--boursorama:hover               { color: #f5921e; }   /* Boursorama — orange */
+.press-logo--bsmart:hover                   { color: #1565c0; }   /* BSmart — bleu foncé */
+.press-logo--madamec:hover                  { color: #c96b8a; }   /* Madame C — rose */
 
 /* --- Quality cards (about page) --- */
 .quality-card {
