@@ -2,5 +2,6 @@
 .claude/
 
 # Fichiers avec clés API — ne jamais pousser sur GitHub
+config.php
 subscribe.php
 send.php
