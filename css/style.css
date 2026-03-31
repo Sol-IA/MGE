@@ -290,7 +290,7 @@ h4 {
 
 .btn--sm {
   padding: 0.6rem 1.5rem;
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
 }
 
 /* --- Card --- */
@@ -433,6 +433,46 @@ h4 {
 }
 .header__cta:hover {
   color: #fff !important;
+}
+
+/* ── Prestations — cartes featured ────────────────────────── */
+/* Pas de barre verte générique sur ces cartes */
+.service-card--complete::before,
+.service-card--essentielle::before,
+.service-card--carte::before {
+  display: none;
+}
+
+/* Flex pour aligner les boutons en bas */
+.service-card--complete,
+.service-card--essentielle,
+.service-card--carte {
+  display: flex;
+  flex-direction: column;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-body .btn {
+  margin-top: auto;
+}
+
+/* Transition sur les headers */
+.card-header {
+  transition: background-color 0.3s ease;
+}
+
+/* Hover : chaque carte assombrit sa propre couleur */
+.service-card--complete:hover .card-header {
+  background: var(--color-primary-dark) !important;   /* vert plus sombre */
+}
+.service-card--essentielle:hover .card-header {
+  background: #9e6a50 !important;                     /* terracotta plus sombre */
+}
+.service-card--carte:hover .card-header {
+  background: #9cc578 !important;                     /* vert moyen (transition light → green) */
 }
 
 /* Mobile menu toggle */
