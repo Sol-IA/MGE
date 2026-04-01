@@ -544,7 +544,7 @@ h4 {
   position: relative;
   z-index: 1;
   max-width: 700px;
-  padding: var(--space-3xl) var(--space-md);
+  padding: max(var(--space-3xl), calc(100px + var(--space-xl))) var(--space-md) var(--space-3xl);
 }
 
 .hero__badge {
