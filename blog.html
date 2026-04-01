@@ -20,6 +20,17 @@
 <meta property="og:title" content="Blog Mariage Eco-Responsable en Provence | My Green Event"/>
 <meta property="og:description" content="Astuces, inspirations et retours d'expériences pour organiser un mariage respectueux de la planète. Le blog mariage ethique en Provence par My Green Event."/>
 <link href="css/style.min.css" rel="stylesheet"/>
+<style>
+.blog-card { transition: opacity 0.2s; }
+.blog-card.hidden { display: none !important; }
+.card.hidden { display: none !important; }
+.pagination { display:flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:var(--space-xl); flex-wrap:wrap; }
+.pagination__btn { width:2.5rem; height:2.5rem; border-radius:50%; border:1.5px solid var(--color-border); background:#fff; font-size:var(--text-sm); font-weight:500; cursor:pointer; transition:all var(--transition); display:flex; align-items:center; justify-content:center; color:var(--color-text); }
+.pagination__btn:hover { border-color:var(--color-primary); color:var(--color-primary); }
+.pagination__btn--active { background:var(--color-primary); border-color:var(--color-primary); color:#fff !important; }
+.pagination__btn:disabled { opacity:0.35; cursor:not-allowed; }
+.pagination__info { font-size:var(--text-sm); color:var(--color-text-muted); }
+</style>
 <link href="https://mygreenevent.fr/wp-content/uploads/2017/02/cropped-cropped-BAT_logo_MGE-32x32.png" rel="icon" sizes="32x32"/>
 </head>
 <body>
@@ -35,6 +46,7 @@
 <a href="index.html">Accueil</a>
 <a href="prestations.html">Prestations</a>
 <a href="a-propos.html">À propos</a>
+<a href="realisations.html">Réalisations</a>
 <a class="active" href="blog.html">Blog</a>
 <a href="faq.html">FAQ</a>
 <a href="presse.html">Presse</a>
@@ -266,6 +278,10 @@
 </div>
 </div>
 </section>
+<div class="container">
+  <div class="pagination" id="pagination"></div>
+  <p class="pagination__info" id="pagination-info" style="text-align:center;margin-top:0.75rem;"></p>
+</div>
 <!-- CTA -->
 <section class="section section--bg">
 <div class="container">
@@ -289,7 +305,8 @@
 <a aria-label="Pinterest" href="https://fr.pinterest.com/mygreenevent/" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"></path></svg></a>
 </div>
 </div>
-<div><h5>Navigation</h5><div class="footer__links"><a href="index.html">Accueil</a><a href="prestations.html">Prestations</a><a href="a-propos.html">À propos</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="presse.html">Presse</a></div></div>
+<div><h5>Navigation</h5><div class="footer__links"><a href="index.html">Accueil</a><a href="prestations.html">Prestations</a><a href="a-propos.html">À propos</a>
+<a href="realisations.html">Réalisations</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="presse.html">Presse</a></div></div>
 <div><h5>Contact</h5><div class="footer__links"><a href="mailto:contact@mygreenevent.fr">contact@mygreenevent.fr</a><a href="tel:+33622146185">06 22 14 61 85</a><a>Aix-en-Provence, 13100</a></div></div>
 <div><h5>Informations</h5><div class="footer__links"><a href="contact.html">Contact</a><a href="mentions-legales.html">Mentions légales</a><a href="cgv.html">CGV</a></div></div>
 </div>
@@ -301,5 +318,64 @@
 </footer>
 <script src="js/main.min.js" defer></script>
 <script src="js/cookie.min.js" defer></script>
+<script>
+(function(){
+  const ITEMS_PER_PAGE = 9;
+  const cards = Array.from(document.querySelectorAll('.card'));
+  let currentPage = 1;
+  const totalPages = Math.ceil(cards.length / ITEMS_PER_PAGE);
+
+  function showPage(page) {
+    currentPage = page;
+    const start = (page - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    cards.forEach((card, i) => card.classList.toggle('hidden', i < start || i >= end));
+    renderPagination();
+    document.querySelector('.blog-grid, .grid')?.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function renderPagination() {
+    const pag = document.getElementById('pagination');
+    const info = document.getElementById('pagination-info');
+    if (!pag) return;
+    pag.innerHTML = '';
+
+    // Prev
+    const prev = document.createElement('button');
+    prev.className = 'pagination__btn';
+    prev.innerHTML = '&#8592;';
+    prev.disabled = currentPage === 1;
+    prev.addEventListener('click', () => showPage(currentPage - 1));
+    pag.appendChild(prev);
+
+    // Pages
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'pagination__btn' + (i === currentPage ? ' pagination__btn--active' : '');
+      btn.textContent = i;
+      btn.addEventListener('click', () => showPage(i));
+      pag.appendChild(btn);
+    }
+
+    // Next
+    const next = document.createElement('button');
+    next.className = 'pagination__btn';
+    next.innerHTML = '&#8594;';
+    next.disabled = currentPage === totalPages;
+    next.addEventListener('click', () => showPage(currentPage + 1));
+    pag.appendChild(next);
+
+    if (info) {
+      const start = (currentPage - 1) * ITEMS_PER_PAGE + 1;
+      const end = Math.min(currentPage * ITEMS_PER_PAGE, cards.length);
+      info.textContent = `Articles ${start}\u2013${end} sur ${cards.length}`;
+    }
+  }
+
+  if (totalPages > 1) {
+    showPage(1);
+  }
+})();
+</script>
 </body>
 </html>
