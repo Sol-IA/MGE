@@ -31,6 +31,52 @@
     ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
+# ── Redirections 301 — Migration WordPress → Site statique ────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Pages principales
+    RewriteRule ^prestations/?$                             /prestations.html [R=301,L]
+    RewriteRule ^a-propos/?$                                /a-propos.html [R=301,L]
+    RewriteRule ^contact/?$                                 /contact.html [R=301,L]
+    RewriteRule ^faq-wedding-planner-eco-responsable-provence/?$ /faq.html [R=301,L]
+    RewriteRule ^presse/?$                                  /presse.html [R=301,L]
+    RewriteRule ^blog/?$                                    /blog.html [R=301,L]
+
+    # Articles blog — slug identique
+    RewriteRule ^mariage-green-faire-part/?$                /blog/articles/mariage-green-faire-part.html [R=301,L]
+    RewriteRule ^mariage-green-decoration-fleurs/?$         /blog/articles/mariage-green-decoration-fleurs.html [R=301,L]
+    RewriteRule ^mariage-green-repas/?$                     /blog/articles/mariage-green-repas.html [R=301,L]
+    RewriteRule ^mariage-green-lieu-reception/?$            /blog/articles/mariage-green-lieu-reception.html [R=301,L]
+    RewriteRule ^mariage-green-tenue-mariage-eco-responsable/?$ /blog/articles/mariage-green-tenue-mariage-eco-responsable.html [R=301,L]
+    RewriteRule ^vrai-faux-wedding-planner/?$               /blog/articles/vrai-faux-wedding-planner.html [R=301,L]
+    RewriteRule ^engagements-wedding-planner/?$             /blog/articles/engagements-wedding-planner.html [R=301,L]
+    RewriteRule ^adopter-le-zero-dechet-a-aix-en-provence/?$ /blog/articles/adopter-le-zero-dechet-a-aix-en-provence.html [R=301,L]
+    RewriteRule ^cadeaux-dinvites-eco-responsables/?$       /blog/articles/cadeaux-dinvites-eco-responsables.html [R=301,L]
+    RewriteRule ^les-etapes-essentielles-pour-une-planification-de-mariage-reussie/?$ /blog/articles/les-etapes-essentielles-pour-une-planification-de-mariage-reussie.html [R=301,L]
+    RewriteRule ^les-tendances-de-mariage-eco-responsables-pour-2025-un-mariage-plus-vert-et-plus-ethique/?$ /blog/articles/les-tendances-de-mariage-eco-responsables-pour-2025-un-mariage-plus-vert-et-plus-ethique.html [R=301,L]
+
+    # Articles blog — slug raccourci dans le nouveau site
+    RewriteRule ^comment-organiser-un-mariage-zero-dechet/?$ /blog/articles/mariage-zero-dechet.html [R=301,L]
+    RewriteRule ^les-10-erreurs-a-eviter-lors-de-lorganisation-dun-mariage-eco-responsable/?$ /blog/articles/10-erreurs-mariage-eco.html [R=301,L]
+    RewriteRule ^pourquoi-opter-pour-un-mariage-vegetarien-ou-vegetalien/?$ /blog/articles/mariage-vegetarien-vegetalien.html [R=301,L]
+    RewriteRule ^ceremonie-laique-vs-ceremonie-religieuse-quelle-est-la-meilleure-option-pour-votre-mariage/?$ /blog/articles/ceremonie-laique-vs-religieuse.html [R=301,L]
+    RewriteRule ^reduire-son-empreinte-carbone-lors-dun-mariage-pourquoi-et-comment/?$ /blog/articles/reduire-empreinte-carbone-mariage.html [R=301,L]
+    RewriteRule ^les-bienfaits-de-la-coordination-du-jour-j-pourquoi-faire-appel-a-une-wedding-planner/?$ /blog/articles/coordination-jour-j.html [R=301,L]
+    RewriteRule ^hopono-my-green-event-lieu-mariage-provence/?$ /blog/articles/hopono-lieu-mariage-provence.html [R=301,L]
+    RewriteRule ^mariage-ethique-comment-choisir-des-prestataires-alignes-avec-vos-valeurs/?$ /blog/articles/mariage-ethique-prestataires.html [R=301,L]
+    RewriteRule ^les-meilleurs-outils-pour-organiser-un-mariage/?$ /blog/articles/meilleurs-outils-organiser-mariage.html [R=301,L]
+    RewriteRule ^tous-les-metiers-caches-dune-wedding-planner-le-jour-j/?$ /blog/articles/metiers-caches-wedding-planner.html [R=301,L]
+    RewriteRule ^comment-gerer-un-budget-de-mariage-tout-en-restant-eco-responsable/?$ /blog/articles/budget-mariage-eco.html [R=301,L]
+    RewriteRule ^choisir-des-fleurs-locales-et-durables-pour-votre-mariage/?$ /blog/articles/fleurs-locales-durables.html [R=301,L]
+
+    # Articles WordPress sans équivalent → blog
+    RewriteRule ^oui-ding-festival-du-mariage-durable-decale/?$ /blog.html [R=301,L]
+    RewriteRule ^latelier-du-ouiding/?$                     /blog.html [R=301,L]
+    RewriteRule ^aix-en-crea-edition-mariage-2019/?$        /blog.html [R=301,L]
+    RewriteRule ^gagnez-votre-coordination-du-jour-j/?$     /prestations.html [R=301,L]
+</IfModule>
+
 # ── Bloquer accès aux fichiers sensibles ─────────────────────────
 <FilesMatch "^(config|\.env|\.gitignore)">
     Order allow,deny
