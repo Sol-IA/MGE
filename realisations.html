@@ -25,53 +25,72 @@
 <!-- Favicon -->
 <link href="assets/favicon.png" rel="icon" sizes="32x32"/>
 <style>
-/* Filtres */
+/* ── Filtres ── */
 .filter-bar { display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center; margin-bottom:var(--space-xl); }
 .filter-btn { padding:0.5rem 1.5rem; border:1.5px solid var(--color-border); border-radius:var(--radius-full); background:#fff; font-size:var(--text-sm); font-weight:500; cursor:pointer; transition:all var(--transition); color:var(--color-text); }
 .filter-btn:hover, .filter-btn--active { background:var(--color-primary); color:#fff; border-color:var(--color-primary); }
 
-/* Fiche réalisation */
-.real-list { display:flex; flex-direction:column; gap:var(--space-xl); }
-.real-card { display:grid; grid-template-columns:1fr 1fr; border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-md); background:#fff; transition:box-shadow var(--transition); }
-.real-card:hover { box-shadow:var(--shadow-xl); }
+/* ── Cards — alternance gauche/droite ── */
+.real-list { display:flex; flex-direction:column; gap:var(--space-2xl); }
+.real-card { display:flex; border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-md); background:#fff; transition:box-shadow var(--transition); min-height:400px; }
+.real-card:hover { box-shadow:0 20px 60px rgba(0,0,0,0.13); }
 .real-card.hidden { display:none; }
 
-/* Photo */
-.real-card__gallery { position:relative; background:var(--color-bg-warm); min-height:360px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.75rem; color:var(--color-text-muted); }
-.real-card__gallery img { width:100%; height:100%; object-fit:cover; display:block; }
-.real-card__gallery .placeholder { display:flex; flex-direction:column; align-items:center; gap:0.75rem; padding:var(--space-lg); text-align:center; }
-.real-card__gallery .placeholder span { font-size:3rem; }
-.real-card__gallery .placeholder p { font-size:var(--text-sm); color:var(--color-text-muted); }
+/* Photo à gauche par défaut */
+.real-card__gallery { flex:0 0 50%; position:relative; overflow:hidden; }
+/* Info à droite par défaut */
+.real-card__info { flex:0 0 50%; padding:var(--space-xl) var(--space-xl); display:flex; flex-direction:column; justify-content:center; gap:0.85rem; position:relative; }
+.real-card__info::before { content:''; position:absolute; left:0; top:15%; bottom:15%; width:3px; background:var(--color-primary); border-radius:2px; opacity:0.35; }
 
-/* Badge formule */
-.real-card__badge { display:inline-block; padding:0.3rem 1rem; border-radius:var(--radius-full); font-size:var(--text-xs); font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:var(--space-sm); }
+/* Alternance : photo à droite sur les cards paires */
+.real-card:nth-child(even) .real-card__gallery { order:2; }
+.real-card:nth-child(even) .real-card__info { order:1; }
+.real-card:nth-child(even) .real-card__info::before { left:auto; right:0; }
+
+/* ── Galerie photos ── */
+.real-gallery-grid { display:grid; grid-template-columns:2fr 1fr; grid-template-rows:1fr 1fr; height:100%; min-height:400px; gap:3px; }
+.real-gallery-main { grid-row:1 / -1; width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.6s ease; }
+.real-gallery-thumb { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.6s ease; }
+.real-card:hover .real-gallery-main,
+.real-card:hover .real-gallery-thumb { transform:scale(1.03); }
+
+/* ── Badge formule ── */
+.real-card__badge { display:inline-block; padding:0.3rem 1rem; border-radius:var(--radius-full); font-size:var(--text-xs); font-weight:600; letter-spacing:0.1em; text-transform:uppercase; align-self:flex-start; }
 .badge--complete { background:var(--color-bg-green); color:var(--color-primary-dark); }
 .badge--coordination { background:#FCE9DC; color:#9e6a50; }
 .badge--carte { background:var(--color-bg-warm); color:var(--color-text-light); }
 
-/* Infos */
-.real-card__info { padding:var(--space-lg) var(--space-xl); display:flex; flex-direction:column; justify-content:center; gap:var(--space-sm); }
-.real-card__title { font-family:var(--font-heading); font-size:var(--text-2xl); line-height:1.2; margin:0; }
-.real-card__location { color:var(--color-text-light); font-size:var(--text-sm); display:flex; align-items:center; gap:0.4rem; margin-top:0.25rem; }
-.real-card__desc { color:var(--color-text-light); font-size:var(--text-sm); line-height:1.7; margin-top:0.25rem; }
-.real-card__stats { display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-top:var(--space-sm); }
-.real-stat { background:var(--color-bg-warm); border-radius:var(--radius-md); padding:0.5rem 1rem; font-size:var(--text-xs); }
-.real-stat strong { display:block; font-size:var(--text-lg); color:var(--color-primary); font-weight:600; }
-.real-stat span { color:var(--color-text-muted); text-transform:uppercase; letter-spacing:0.06em; font-size:0.7rem; }
-.real-card__tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:var(--space-xs); }
-.real-tag { background:var(--color-bg-green); color:var(--color-primary-dark); font-size:var(--text-xs); padding:0.25rem 0.75rem; border-radius:var(--radius-full); }
+/* ── Texte ── */
+.real-card__title { font-family:var(--font-heading); font-size:var(--text-3xl); line-height:1.15; margin:0; color:var(--color-text); }
+.real-card__location { color:var(--color-text-light); font-size:var(--text-sm); display:flex; align-items:center; gap:0.4rem; }
+.real-card__desc { color:var(--color-text-light); font-size:var(--text-sm); line-height:1.75; }
 
-/* Galerie multi-photos */
-.real-gallery-grid { display:grid; grid-template-columns:2fr 1fr; grid-template-rows:1fr 1fr; height:100%; min-height:360px; gap:3px; }
-.real-gallery-main { grid-row:1 / -1; width:100%; height:100%; object-fit:cover; display:block; }
-.real-gallery-thumb { width:100%; height:100%; object-fit:cover; display:block; }
+/* ── Défi mis en avant ── */
+.real-card__challenge { background:var(--color-bg-warm); border-left:3px solid var(--color-accent-dark); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:0.65rem 1rem; font-size:var(--text-xs); color:var(--color-accent-dark); line-height:1.5; }
+.real-card__challenge strong { display:block; text-transform:uppercase; letter-spacing:0.08em; font-size:0.68rem; margin-bottom:2px; }
 
-/* Responsive */
+/* ── Stats inline ── */
+.real-card__stats { display:flex; flex-wrap:wrap; gap:1.25rem; padding-top:0.25rem; }
+.real-stat { font-size:var(--text-xs); }
+.real-stat strong { font-size:var(--text-xl); color:var(--color-primary); font-family:var(--font-heading); line-height:1; display:block; }
+.real-stat span { color:var(--color-text-muted); text-transform:uppercase; letter-spacing:0.07em; font-size:0.68rem; }
+
+/* ── Tags ── */
+.real-card__tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.real-tag { background:var(--color-bg-green); color:var(--color-primary-dark); font-size:0.7rem; padding:0.2rem 0.65rem; border-radius:var(--radius-full); font-weight:500; }
+
+/* ── Responsive ── */
 @media(max-width:900px) {
-  .real-card { grid-template-columns:1fr; }
-  .real-card__gallery { min-height:260px; }
-  .real-gallery-grid { min-height:260px; grid-template-columns:2fr 1fr; }
+  .real-card,
+  .real-card:nth-child(even) { flex-direction:column; }
+  .real-card:nth-child(even) .real-card__gallery,
+  .real-card:nth-child(even) .real-card__info { order:unset; }
+  .real-card__gallery { flex:none; }
+  .real-gallery-grid { min-height:260px; }
   .real-card__info { padding:var(--space-lg); }
+  .real-card__info::before,
+  .real-card:nth-child(even) .real-card__info::before { display:none; }
+  .real-card__title { font-size:var(--text-2xl); }
 }
 </style>
 </head>
@@ -140,7 +159,11 @@
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         Domaine privé familial — Eygalières (13) · Septembre 2018
       </p>
-      <p class="real-card__desc">Mariage champêtre 100% en extérieur dans un domaine privé familial, organisé en 6 mois avec des mariés basés à Paris. Un vrai défi logistique avec une contrainte électrique importante sur le domaine — entièrement relevé.</p>
+      <p class="real-card__desc">Mariage champêtre organisé dans un domaine familial privé au cœur des Alpilles, à Eygalières. En 6 mois depuis Paris, Coralie a coordonné l'intégralité du projet — traiteur, fleuriste, musique, hébergement — pour un mariage 100% en extérieur, authentique et naturel.</p>
+      <div class="real-card__challenge">
+        <strong>Défi</strong>
+        Contrainte électrique critique sur le domaine : solution sur-mesure avec groupe électrogène silencieux et câblage dédié, invisible pour les invités.
+      </div>
       <div class="real-card__stats">
         <div class="real-stat"><strong>110</strong><span>Invités</span></div>
         <div class="real-stat"><strong>Champêtre</strong><span>Thème</span></div>
@@ -171,7 +194,11 @@
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         Moulin des Gaffins — Vaucluse (84) · Septembre 2019
       </p>
-      <p class="real-card__desc">Organisation complète en 9 mois pour deux mariés expatriés à Oman. Visites de lieux et dégustations coordonnées avec les parents en leur absence. Cérémonie religieuse et réception au domaine dans une ambiance Provence authentique.</p>
+      <p class="real-card__desc">Organisation complète d'un mariage de 150 invités au Moulin des Gaffins, domaine d'exception dans le Vaucluse, pour deux mariés expatriés à Oman. Visites de lieux, dégustations et rencontres prestataires assurées en leur absence. Cérémonie religieuse suivie d'une réception dans une ambiance Provence authentique.</p>
+      <div class="real-card__challenge">
+        <strong>Défi</strong>
+        Mariés à 5 500 km : toutes les décisions prises par procuration, avec visioconférences hebdomadaires et reporting photo pour validation en temps réel.
+      </div>
       <div class="real-card__stats">
         <div class="real-stat"><strong>150</strong><span>Invités</span></div>
         <div class="real-stat"><strong>Provence</strong><span>Thème</span></div>
@@ -202,7 +229,11 @@
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         Château Grand Boise — Trets (13) · Septembre 2020
       </p>
-      <p class="real-card__desc">Coordination Jour J d'un mariage de 170 convives au cœur de la crise sanitaire Covid. Une dizaine de prestataires coordonnés sur place, une équipe de 3 (1 wedding planner + 2 assistants) pour que les mariés puissent vivre leur jour pleinement.</p>
+      <p class="real-card__desc">Coordination Jour J de 170 convives au Château Grand Boise à Trets, en pleine période Covid. Dix prestataires coordonnés simultanément sur le domaine, avec une équipe de 3 coordinateurs pour une logistique millimétrée. Les mariés ont vécu pleinement leur journée, sans aucune contrainte organisationnelle.</p>
+      <div class="real-card__challenge">
+        <strong>Défi</strong>
+        Contexte sanitaire incertain jusqu'au dernier moment : protocoles adaptés, plan B pour chaque prestation, équipe renforcée sur place.
+      </div>
       <div class="real-card__stats">
         <div class="real-stat"><strong>170</strong><span>Invités</span></div>
         <div class="real-stat"><strong>Le Sud</strong><span>Thème</span></div>
@@ -233,7 +264,11 @@
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         Domaine privé — L'Isle-sur-la-Sorgue (84) · Juillet 2021
       </p>
-      <p class="real-card__desc">Organisation et coordination dans une propriété privée, 100% en extérieur sous un épisode de canicule intense. Adaptation logistique en temps réel : fleurs et éléments de décoration installés au dernier moment pour conserver leur fraîcheur.</p>
+      <p class="real-card__desc">Mariage 100% en extérieur dans une propriété privée de l'Isle-sur-la-Sorgue, en juillet sous une canicule record. Adaptation logistique continue : installation des fleurs et de la décoration au lever du soleil pour conserver leur fraîcheur tout au long de la journée.</p>
+      <div class="real-card__challenge">
+        <strong>Défi</strong>
+        40°C le jour J : reprogrammation de l'installation déco à l'aube, ventilateurs et rafraîchissements intégrés au plan de salle pour le confort des invités.
+      </div>
       <div class="real-card__stats">
         <div class="real-stat"><strong>80</strong><span>Invités</span></div>
         <div class="real-stat"><strong>Olivier</strong><span>Thème</span></div>
@@ -265,7 +300,11 @@
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         Clos d'Hullias — Gard (30) · Octobre 2021
       </p>
-      <p class="real-card__desc">Mariage franco-allemand-espagnol organisé à distance depuis l'Allemagne. Cérémonie laïque conduite dans les 3 langues et réception sous tente. Une célébration pluriculturelle exigeante, menée avec précision.</p>
+      <p class="real-card__desc">Mariage pluriculturel franco-allemand-espagnol au Clos d'Hullias dans le Gard, coordonné à distance depuis l'Allemagne. Cérémonie laïque conduite dans les trois langues, réception sous tente pour 90 convives avec une décoration terracotta chaleureuse. Une célébration haute en couleurs, ancrée dans l'authenticité provençale.</p>
+      <div class="real-card__challenge">
+        <strong>Défi</strong>
+        Cérémonie trilingue à coordonner avec l'officiant : écriture complète du script en 3 langues, répétitions à distance et minutage précis pour que chaque famille se sente pleinement incluse.
+      </div>
       <div class="real-card__stats">
         <div class="real-stat"><strong>90</strong><span>Invités</span></div>
         <div class="real-stat"><strong>Terracotta</strong><span>Thème</span></div>
@@ -296,7 +335,11 @@
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         Château de Valmousse — Lambesc (13) · Juin 2021
       </p>
-      <p class="real-card__desc">Organisation pendant la crise sanitaire Covid pour deux mariés en première ligne — urgentiste et réanimateur. Un lieu en total rénovation lors de la première visite, transformé en écrin provençal pour leur jour. Un mariage particulièrement chargé en émotion.</p>
+      <p class="real-card__desc">Organisation complète au Château de Valmousse à Lambesc pour deux soignants en première ligne — urgentiste et réanimateur — au plus fort de la crise Covid. Le château était en chantier total lors de la première visite. Coralie a suivi la rénovation pas à pas pour en faire l'écrin provençal rêvé par les mariés, dans un mariage particulièrement chargé en émotion.</p>
+      <div class="real-card__challenge">
+        <strong>Défi</strong>
+        Château livré 3 semaines avant le mariage : coordination serrée avec les artisans, installation déco anticipée et plan de salle adapté aux livraisons de dernière minute.
+      </div>
       <div class="real-card__stats">
         <div class="real-stat"><strong>100</strong><span>Invités</span></div>
         <div class="real-stat"><strong>Nature provençale</strong><span>Thème</span></div>
@@ -327,7 +370,11 @@
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         Domaine du Grand Lauron — Vaucluse (84) · Août 2022
       </p>
-      <p class="real-card__desc">Organisation complète à distance depuis la Suisse. Un lieu découvert en total rénovation lors de la première visite, piloté jusqu'à son inauguration. Cérémonie religieuse et réception dans une esthétique minimaliste chic aux lignes épurées.</p>
+      <p class="real-card__desc">Organisation complète depuis la Suisse d'un mariage de 150 invités au Domaine du Grand Lauron dans le Vaucluse. Lieu découvert en plein chantier lors de la première visite, piloté jusqu'à son inauguration officielle. Cérémonie religieuse suivie d'une réception dans une esthétique minimaliste chic, tout en sobriété et élégance provençale.</p>
+      <div class="real-card__challenge">
+        <strong>Défi</strong>
+        Lieu en travaux à la signature : suivi de chantier hebdomadaire, visites prestataires organisées au fil de la rénovation pour valider chaque espace avant livraison.
+      </div>
       <div class="real-card__stats">
         <div class="real-stat"><strong>150</strong><span>Invités</span></div>
         <div class="real-stat"><strong>Minimaliste chic</strong><span>Thème</span></div>
@@ -358,7 +405,11 @@
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
         Maison familiale privée — Eygalières (13) · Juillet 2024
       </p>
-      <p class="real-card__desc">Organisation à distance depuis les États-Unis dans la maison familiale provençale. Face à la pluie, activation du plan de repli en temps réel — preuve de la réactivité de toute l'équipe pour que rien ne vienne ternir ce jour unique.</p>
+      <p class="real-card__desc">Organisation à distance depuis les États-Unis dans la maison familiale provençale des parents de Sarah, à Eygalières. Un cadre intime et chargé d'histoire pour 70 invités, dont une partie venue des USA. La pluie a fait son apparition le matin du mariage — le plan de repli a été activé dans l'heure, sans que les mariés ne ressentent le moindre stress.</p>
+      <div class="real-card__challenge">
+        <strong>Défi</strong>
+        Pluie imprévue le jour J : déclenchement du plan B en 45 minutes, repositionnement complet de la cérémonie et de la réception sans aucune perturbation visible pour les invités.
+      </div>
       <div class="real-card__stats">
         <div class="real-stat"><strong>70</strong><span>Invités</span></div>
         <div class="real-stat"><strong>Nature chic</strong><span>Thème</span></div>
