@@ -4,54 +4,55 @@
   <!-- Pages principales -->
   <url>
     <loc>https://mygreenevent.fr/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/prestations.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mygreenevent.fr/realisations.html</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/a-propos.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/contact.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/blog.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mygreenevent.fr/realisations.html</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://mygreenevent.fr/faq.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mygreenevent.fr/presse.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Articles de blog — 2026 -->
+
+  <!-- Articles de blog -->
   <url>
     <loc>https://mygreenevent.fr/blog/articles/fleurs-locales-durables.html</loc>
     <lastmod>2026-01-20</lastmod>
@@ -64,8 +65,6 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Articles de blog — 2025 -->
   <url>
     <loc>https://mygreenevent.fr/blog/articles/metiers-caches-wedding-planner.html</loc>
     <lastmod>2025-12-11</lastmod>
@@ -144,24 +143,18 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Articles de blog — 2021 -->
   <url>
     <loc>https://mygreenevent.fr/blog/articles/mariage-green-tenue-mariage-eco-responsable.html</loc>
     <lastmod>2021-01-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- Articles de blog — 2020 -->
   <url>
     <loc>https://mygreenevent.fr/blog/articles/adopter-le-zero-dechet-a-aix-en-provence.html</loc>
     <lastmod>2020-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- Articles de blog — 2018 -->
   <url>
     <loc>https://mygreenevent.fr/blog/articles/mariage-green-decoration-fleurs.html</loc>
     <lastmod>2018-03-02</lastmod>
@@ -180,8 +173,6 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- Articles de blog — 2017 -->
   <url>
     <loc>https://mygreenevent.fr/blog/articles/mariage-green-repas.html</loc>
     <lastmod>2017-12-12</lastmod>
