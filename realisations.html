@@ -70,10 +70,11 @@
 .real-card__challenge strong { display:block; text-transform:uppercase; letter-spacing:0.08em; font-size:0.68rem; margin-bottom:2px; }
 
 /* ── Stats inline ── */
-.real-card__stats { display:flex; flex-wrap:wrap; gap:1.25rem; padding-top:0.25rem; }
-.real-stat { font-size:var(--text-xs); text-align:center; }
-.real-stat strong { font-size:var(--text-xl); color:var(--color-primary); font-family:var(--font-heading); line-height:1; display:block; }
-.real-stat span { color:var(--color-text-muted); text-transform:uppercase; letter-spacing:0.07em; font-size:0.68rem; }
+.real-card__stats { display:flex; flex-wrap:wrap; gap:0; padding-top:0.5rem; border-top:1px solid var(--color-border); justify-content:space-around; }
+.real-stat { font-size:var(--text-xs); text-align:center; padding:0.6rem 1rem; flex:1; }
+.real-stat + .real-stat { border-left:1px solid var(--color-border); }
+.real-stat strong { font-size:var(--text-2xl); color:var(--color-primary); font-family:var(--font-heading); line-height:1; display:block; margin-bottom:0.25rem; }
+.real-stat span { color:var(--color-text-muted); text-transform:uppercase; letter-spacing:0.07em; font-size:0.65rem; }
 
 /* ── Tags ── */
 .real-card__tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
@@ -167,7 +168,6 @@
 <button class="filter-btn filter-btn--active" data-filter="all">Tous</button>
 <button class="filter-btn" data-filter="complete">Formule complète</button>
 <button class="filter-btn" data-filter="coordination">Coordination Jour J</button>
-<button class="filter-btn" data-filter="carte">À la carte</button>
 </div>
 
 <!-- Fiches -->
