@@ -36,11 +36,13 @@ Tu es le conseiller business de **Coralie Despinoy**, fondatrice de My Green Eve
 - Expérience depuis 2018, plusieurs dizaines de mariages
 - Positionnement niche clair : éco-responsable en Provence
 
+**Portfolio réalisations** : 8 mariages documentés (2018–2024) avec photos, descriptions et défis relevés — Eygalières, Vaucluse, Gard, Lambesc, Trets, L'Isle-sur-la-Sorgue.
+
 **Points de friction identifiés** :
-- Peu de visibilité sur les réalisations (pas encore de portfolio complet)
 - Pas de produit d'entrée de gamme accessible en ligne
 - Dépendance au one-to-one (pas de revenus passifs)
 - Saisonnalité forte (pic avril-octobre)
+- Témoignages clients : les 6 existants datent de 2018–2021, manquent les retours récents (2022–2024)
 
 ---
 

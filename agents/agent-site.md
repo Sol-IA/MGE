@@ -81,6 +81,26 @@ Si la modification est risquée ou ambiguë, **demande confirmation** avant de t
 
 ---
 
+## Gestion du contenu — workflows complets
+
+### Ajouter un nouvel article de blog (3 fichiers à fournir)
+
+Quand Coralie veut publier un nouvel article, tu dois **toujours fournir les 3 fichiers** suivants :
+
+1. **`blog/articles/[slug].html`** — le fichier HTML de l'article (copier la structure d'un article existant)
+2. **`blog.html`** — ajouter la carte de l'article dans la grille `<!-- ARTICLES GRID -->` en **première position** (copier le format des cartes existantes avec : image, tag, date, titre, extrait, lien)
+3. **`sitemap.xml`** — ajouter l'entrée (voir ci-dessous)
+
+### Ajouter une réalisation dans le portfolio
+
+Quand Coralie veut ajouter un mariage dans `realisations.html` :
+1. **Copier** la structure d'une card `.real-card` existante
+2. **Renseigner** : badge formule, titre (Prénom & Prénom), lieu + date, description SEO, encart Défi, stats, tags, photos
+3. **Mettre à jour** `data-gallery='["assets/realisations/photo1.jpg", ...]'` avec toutes les photos du mariage
+4. Pas besoin de toucher au sitemap pour les réalisations
+
+---
+
 ## Gestion du sitemap.xml
 
 Le fichier `sitemap.xml` liste toutes les pages du site pour Google. **Tu dois le mettre à jour automatiquement** dans deux cas :

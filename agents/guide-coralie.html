@@ -13,7 +13,6 @@
     --black-soft: #141414;
     --black-card: #1a1a1a;
     --gold: #D4AF37;
-    --gold-light: #E8C547;
     --gold-dim: rgba(212,175,55,0.15);
     --gold-border: rgba(212,175,55,0.3);
     --ivory: #F5F2EB;
@@ -24,114 +23,25 @@
     --font-body: 'Outfit', sans-serif;
   }
 
-  body {
-    font-family: var(--font-body);
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--ivory);
-    background: var(--black);
-  }
+  body { font-family: var(--font-body); font-size: 13px; line-height: 1.7; color: var(--ivory); background: var(--black); }
 
-  /* ── Cover ── */
-  .cover {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: var(--black);
-    padding: 4rem 2rem;
-    page-break-after: always;
-    position: relative;
-  }
-
-  .cover::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(212,175,55,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .cover__logo {
-    margin-bottom: 3rem;
-  }
-
-  .cover__logo-text {
-    font-family: var(--font-heading);
-    font-size: 52px;
-    letter-spacing: 6px;
-    line-height: 1;
-  }
-
+  /* Cover */
+  .cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: var(--black); padding: 4rem 2rem; page-break-after: always; position: relative; }
+  .cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(212,175,55,0.07) 0%, transparent 70%); pointer-events: none; }
+  .cover__logo { margin-bottom: 3rem; }
+  .cover__logo-text { font-family: var(--font-heading); font-size: 52px; letter-spacing: 6px; line-height: 1; }
   .cover__logo-text .sol { color: var(--ivory); }
-  .cover__logo-text .dot { color: var(--gold); }
-  .cover__logo-text .ia  { color: var(--gold); }
+  .cover__logo-text .dot, .cover__logo-text .ia { color: var(--gold); }
+  .cover__logo-tagline { font-size: 10px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-top: 0.6rem; }
+  .cover__for { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .cover h1 { font-family: var(--font-heading); font-size: 40px; font-weight: 400; color: var(--ivory); line-height: 1.25; margin-bottom: 1.5rem; }
+  .cover h1 em { color: var(--gold); font-style: italic; }
+  .cover__divider { width: 50px; height: 1px; background: var(--gold); margin: 1.75rem auto; }
+  .cover p { font-size: 15px; color: var(--ivory-dim); max-width: 480px; margin: 0 auto; font-weight: 300; }
+  .cover__date { font-size: 11px; color: var(--ivory-muted); margin-top: auto; padding-top: 4rem; letter-spacing: 0.05em; }
 
-  .cover__logo-tagline {
-    font-family: var(--font-body);
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-top: 0.6rem;
-  }
-
-  .cover__for {
-    font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  .cover h1 {
-    font-family: var(--font-heading);
-    font-size: 40px;
-    font-weight: 400;
-    color: var(--ivory);
-    line-height: 1.25;
-    margin-bottom: 1.5rem;
-  }
-
-  .cover h1 em {
-    color: var(--gold);
-    font-style: italic;
-  }
-
-  .cover__divider {
-    width: 50px;
-    height: 1px;
-    background: var(--gold);
-    margin: 1.75rem auto;
-  }
-
-  .cover p {
-    font-size: 15px;
-    color: var(--ivory-dim);
-    max-width: 480px;
-    margin: 0 auto;
-    font-weight: 300;
-  }
-
-  .cover__date {
-    font-size: 11px;
-    color: var(--ivory-muted);
-    margin-top: auto;
-    padding-top: 4rem;
-    letter-spacing: 0.05em;
-  }
-
-  /* ── Layout ── */
-  .page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 3rem 3rem;
-  }
+  /* Layout */
+  .page { max-width: 800px; margin: 0 auto; padding: 3rem; }
 
   @media print {
     .page { padding: 2rem 2.5rem; }
@@ -140,279 +50,106 @@
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 
-  /* ── Section label ── */
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-body);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
+  /* Section label */
+  .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .section-label::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
 
-  .section-label::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  /* ── Typography ── */
-  h2 {
-    font-family: var(--font-heading);
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--ivory);
-    margin: 2.5rem 0 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--gold-border);
-  }
-
+  /* Typography */
+  h2 { font-family: var(--font-heading); font-size: 26px; font-weight: 400; color: var(--ivory); margin: 2.5rem 0 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--gold-border); }
   h2:first-of-type { margin-top: 0; }
-
-  h3 {
-    font-family: var(--font-heading);
-    font-size: 16px;
-    color: var(--gold);
-    margin: 2rem 0 0.75rem;
-    font-weight: 400;
-  }
-
-  h4 {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--gray);
-    margin: 1.5rem 0 0.5rem;
-  }
-
+  h3 { font-family: var(--font-heading); font-size: 16px; color: var(--gold); margin: 2rem 0 0.75rem; font-weight: 400; }
+  h4 { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gray); margin: 1.5rem 0 0.5rem; }
   p { margin-bottom: 0.75rem; color: var(--ivory-dim); }
-
   strong { color: var(--ivory); font-weight: 600; }
-
   em { color: var(--ivory-dim); }
 
-  /* ── Steps ── */
-  .steps {
-    counter-reset: step;
-    margin: 1.5rem 0;
-  }
-
-  .step {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
-    align-items: flex-start;
-  }
-
-  .step__num {
-    counter-increment: step;
-    min-width: 32px;
-    height: 32px;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-size: 14px;
-    flex-shrink: 0;
-  }
-
+  /* Steps */
+  .steps { counter-reset: step; margin: 1.5rem 0; }
+  .step { display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start; }
+  .step__num { counter-increment: step; min-width: 32px; height: 32px; border: 1px solid var(--gold); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 14px; flex-shrink: 0; }
   .step__num::before { content: counter(step); }
-
   .step__body { padding-top: 5px; }
   .step__body strong { display: block; margin-bottom: 2px; }
 
-  /* ── Cards ── */
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin: 1.5rem 0;
-  }
-
-  .card {
-    background: var(--black-card);
-    border-radius: 6px;
-    padding: 1.25rem;
-    border: 1px solid var(--gold-border);
-  }
-
-  .card--dim {
-    border-color: rgba(245,242,235,0.1);
-  }
-
+  /* Cards */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .card { background: var(--black-card); border-radius: 6px; padding: 1.25rem; border: 1px solid var(--gold-border); }
+  .card--dim { border-color: rgba(245,242,235,0.1); }
   .card h3 { margin: 0 0 0.5rem; font-size: 14px; }
   .card p { margin: 0; font-size: 12px; }
 
-  /* ── Table ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-    font-size: 12px;
-  }
-
-  th {
-    background: var(--gold-dim);
-    color: var(--gold);
-    padding: 8px 12px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--gold-border);
-  }
-
-  td {
-    padding: 8px 12px;
-    border-bottom: 1px solid rgba(245,242,235,0.07);
-    color: var(--ivory-dim);
-  }
-
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 12px; }
+  th { background: var(--gold-dim); color: var(--gold); padding: 8px 12px; text-align: left; font-weight: 600; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--gold-border); }
+  td { padding: 8px 12px; border-bottom: 1px solid rgba(245,242,235,0.07); color: var(--ivory-dim); }
   tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
 
-  /* ── Callout ── */
-  .callout {
-    background: var(--black-card);
-    border-left: 2px solid var(--gold);
-    padding: 1rem 1.25rem;
-    border-radius: 0 4px 4px 0;
-    margin: 1.25rem 0;
-    font-size: 12px;
-  }
-
+  /* Callout */
+  .callout { background: var(--black-card); border-left: 2px solid var(--gold); padding: 1rem 1.25rem; border-radius: 0 4px 4px 0; margin: 1.25rem 0; font-size: 12px; }
   .callout strong { color: var(--gold); }
-
-  .callout--dim {
-    border-left-color: rgba(245,242,235,0.2);
-    background: rgba(255,255,255,0.02);
-  }
-
+  .callout--dim { border-left-color: rgba(245,242,235,0.2); background: rgba(255,255,255,0.02); }
   .callout--dim strong { color: var(--ivory-dim); }
+  .callout--ok { border-left-color: #5c8a3c; background: rgba(92,138,60,0.08); }
+  .callout--ok strong { color: #7aad52; }
 
-  /* ── Tag / URL ── */
-  .url {
-    font-family: monospace;
-    font-size: 11px;
-    background: rgba(212,175,55,0.1);
-    color: var(--gold);
-    padding: 2px 6px;
-    border-radius: 3px;
-    letter-spacing: 0.02em;
-  }
+  /* URL tag */
+  .url { font-family: monospace; font-size: 11px; background: rgba(212,175,55,0.1); color: var(--gold); padding: 2px 6px; border-radius: 3px; }
 
-  /* ── Separator ── */
-  .sep {
-    border: none;
-    border-top: 1px solid rgba(245,242,235,0.07);
-    margin: 2rem 0;
-  }
+  /* Separator */
+  .sep { border: none; border-top: 1px solid rgba(245,242,235,0.07); margin: 2rem 0; }
 
-  /* ── Checklist ── */
+  /* Checklist */
   .checklist { list-style: none; margin: 1rem 0; }
+  .checklist li { padding: 0.4rem 0 0.4rem 1.75rem; position: relative; border-bottom: 1px solid rgba(245,242,235,0.05); font-size: 12px; color: var(--ivory-dim); }
+  .checklist li::before { content: "□"; position: absolute; left: 0; color: var(--gold); font-size: 14px; line-height: 1.5; }
+  .checklist li.done { color: rgba(245,242,235,0.35); }
+  .checklist li.done::before { content: "✓"; color: #5c8a3c; font-size: 13px; }
 
-  .checklist li {
-    padding: 0.4rem 0 0.4rem 1.75rem;
-    position: relative;
-    border-bottom: 1px solid rgba(245,242,235,0.05);
-    font-size: 12px;
-    color: var(--ivory-dim);
-  }
-
-  .checklist li::before {
-    content: "□";
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  /* ── List ── */
+  /* List */
   .list-check { list-style: none; margin: 0.5rem 0 1rem; padding: 0; }
+  .list-check li { padding: 3px 0 3px 1.4rem; font-size: 12px; color: var(--ivory-dim); position: relative; }
+  .list-check li::before { content: "–"; position: absolute; left: 0; color: var(--gold); }
 
-  .list-check li {
-    padding: 3px 0 3px 1.4rem;
-    font-size: 12px;
-    color: var(--ivory-dim);
-    position: relative;
-  }
+  /* Workflow */
+  .workflow { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: 1.25rem 0; font-size: 12px; }
+  .wf-step { background: var(--black-card); border: 1px solid var(--gold-border); border-radius: 4px; padding: 0.4rem 0.8rem; color: var(--ivory-dim); white-space: nowrap; }
+  .wf-arrow { color: var(--gold); font-size: 14px; flex-shrink: 0; }
 
-  .list-check li::before {
-    content: "–";
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-  }
-
-  /* ── Footer ── */
-  .footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--gold-border);
-    text-align: center;
-  }
-
-  .footer__brand {
-    font-family: var(--font-heading);
-    font-size: 18px;
-    letter-spacing: 4px;
-    margin-bottom: 0.4rem;
-  }
-
+  /* Footer */
+  .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--gold-border); text-align: center; }
+  .footer__brand { font-family: var(--font-heading); font-size: 18px; letter-spacing: 4px; margin-bottom: 0.4rem; }
   .footer__brand .sol { color: var(--ivory); }
-  .footer__brand .dot { color: var(--gold); }
-  .footer__brand .ia  { color: var(--gold); }
+  .footer__brand .dot, .footer__brand .ia { color: var(--gold); }
+  .footer__meta { font-size: 11px; color: var(--ivory-muted); letter-spacing: 0.05em; }
 
-  .footer__meta {
-    font-size: 11px;
-    color: var(--ivory-muted);
-    letter-spacing: 0.05em;
-  }
-
-  /* ── Print ── */
   @media print {
     body { font-size: 11.5px; }
     h2 { font-size: 22px; }
-    .cards { gap: 0.75rem; }
-    .cover h1 { font-size: 34px; }
   }
 </style>
 </head>
 <body>
 
-<!-- COUVERTURE -->
+<!-- ══ COUVERTURE ══ -->
 <div class="cover">
   <div class="cover__logo">
-    <div class="cover__logo-text">
-      <span class="sol">S</span><span class="dot">O</span><span class="sol">L</span><span class="dot">·</span><span class="ia">IA</span>
-    </div>
+    <div class="cover__logo-text"><span class="sol">SOL</span><span class="dot">·</span><span class="ia">IA</span></div>
     <div class="cover__logo-tagline">Automatisation &middot; Intelligence artificielle &middot; Développement sur mesure</div>
   </div>
   <div class="cover__for">Préparé pour Coralie Despinoy</div>
   <h1>Guide <em>Assistant Claude</em><br>&amp; Mise en ligne du site</h1>
   <div class="cover__divider"></div>
-  <p>Modifier le site, rédiger du contenu, gérer les réseaux et développer ton activité avec l'aide de l'IA.</p>
+  <p>Modifier le site, rédiger du contenu, gérer les réseaux et développer ton activité avec l'IA — sans compétence technique.</p>
   <div class="cover__date">My Green Event · mygreenevent.fr · Avril 2026 · Usage personnel et confidentiel</div>
 </div>
 
 
-<!-- PAGE 1 : VUE D'ENSEMBLE + FICHIERS -->
+<!-- ══ PAGE 1 : FONCTIONNEMENT GÉNÉRAL ══ -->
 <div class="page">
   <span class="section-label">Vue d'ensemble</span>
   <h2>Comment tout ça fonctionne</h2>
 
-  <p>Ton site est un ensemble de fichiers <strong>HTML statiques</strong> hébergés sur OVH. Pour les petites modifications, tu n'as pas besoin de développeur — tu utilises un assistant Claude dédié, tu vérifies dans ton navigateur, et tu uploades le fichier via FTP.</p>
+  <p>Ton site est un ensemble de fichiers <strong>HTML statiques</strong> hébergés sur ton espace OVH. Pour toutes les modifications courantes — textes, prix, articles, réseaux sociaux — tu n'as pas besoin de développeur : tu utilises un assistant Claude dédié, tu vérifies dans ton navigateur, et tu uploades le fichier modifié via FileZilla.</p>
 
   <h3>Le principe en 3 étapes</h3>
   <div class="steps">
@@ -420,27 +157,27 @@
       <div class="step__num"></div>
       <div class="step__body">
         <strong>Tu demandes à Claude de modifier un fichier</strong>
-        Ouvre le projet "Site MGE" sur claude.ai. Colle le contenu du fichier HTML à modifier. Décris ce que tu veux changer.
+        Ouvre le projet correspondant sur <span class="url">claude.ai</span>. Colle le contenu du fichier HTML. Décris ce que tu veux changer. Claude te rend le fichier corrigé, complet.
       </div>
     </div>
     <div class="step">
       <div class="step__num"></div>
       <div class="step__body">
         <strong>Tu vérifies dans ton navigateur</strong>
-        Claude te rend le fichier modifié. Enregistre-le sur ton ordi. Double-clique pour l'ouvrir dans ton navigateur et vérifie que tout est correct.
+        Enregistre le fichier sur ton ordinateur. Double-clique pour l'ouvrir dans Chrome ou Safari. Vérifie que tout est correct avant de mettre en ligne.
       </div>
     </div>
     <div class="step">
       <div class="step__num"></div>
       <div class="step__body">
-        <strong>Tu uploades via FTP</strong>
-        Connecte-toi sur OVH avec FileZilla. Glisse le fichier au bon endroit sur le serveur. Le site est mis à jour instantanément.
+        <strong>Tu uploades via FileZilla (FTP)</strong>
+        Connecte-toi à ton espace OVH avec FileZilla. Glisse le fichier au bon endroit sur le serveur. Le site est mis à jour instantanément.
       </div>
     </div>
   </div>
 
   <div class="callout">
-    <strong>Pour les modifications importantes</strong> (nouvelle section, nouveau design, intégration technique) — contacte Thomas Rodriguez.
+    <strong>Pour les modifications importantes</strong> — nouvelle section, nouveau design, intégration technique, bug — contacte Thomas : <span class="url">thomas@sol-ia.tech</span> · 06 50 68 20 68
   </div>
 
   <hr class="sep"/>
@@ -450,77 +187,74 @@
     <tr><th>Fichier</th><th>Page correspondante</th></tr>
     <tr><td><span class="url">index.html</span></td><td>Page d'accueil</td></tr>
     <tr><td><span class="url">prestations.html</span></td><td>Tes 3 formules + tarifs</td></tr>
-    <tr><td><span class="url">a-propos.html</span></td><td>Ta présentation + témoignages</td></tr>
-    <tr><td><span class="url">realisations.html</span></td><td>Portfolio mariages</td></tr>
+    <tr><td><span class="url">a-propos.html</span></td><td>Ta présentation + témoignages clients</td></tr>
+    <tr><td><span class="url">realisations.html</span></td><td>Portfolio — 8 mariages avec galerie photos</td></tr>
     <tr><td><span class="url">contact.html</span></td><td>Formulaire de contact + carte</td></tr>
-    <tr><td><span class="url">blog.html</span></td><td>Liste de tous les articles</td></tr>
+    <tr><td><span class="url">blog.html</span></td><td>Liste de tous les articles (23 publiés)</td></tr>
     <tr><td><span class="url">faq.html</span></td><td>Questions fréquentes</td></tr>
-    <tr><td><span class="url">presse.html</span></td><td>Revue de presse</td></tr>
+    <tr><td><span class="url">presse.html</span></td><td>Revue de presse + podcast Carnet de Noces</td></tr>
     <tr><td><span class="url">mentions-legales.html</span></td><td>Mentions légales</td></tr>
     <tr><td><span class="url">cgv.html</span></td><td>Conditions Générales de Vente</td></tr>
-    <tr><td><span class="url">blog/articles/[slug].html</span></td><td>Chaque article de blog</td></tr>
+    <tr><td><span class="url">blog/articles/[slug].html</span></td><td>Chaque article de blog individuel</td></tr>
+    <tr><td><span class="url">sitemap.xml</span></td><td>Plan du site pour Google (mis à jour automatiquement)</td></tr>
   </table>
+
+  <div class="callout callout--dim">
+    <strong>Fichiers techniques sur OVH uniquement (ne pas toucher) :</strong> <span class="url">config.php</span>, <span class="url">send.php</span>, <span class="url">subscribe.php</span>, <span class="url">ratelimit.php</span> — gèrent l'envoi des emails et la newsletter. Tout changement passe par Thomas.
+  </div>
 </div>
 
 
-<!-- PAGE 2 : LES 4 AGENTS -->
+<!-- ══ PAGE 2 : LES 4 AGENTS ══ -->
 <div class="page page-break">
   <span class="section-label">Tes assistants Claude</span>
   <h2>Les 4 agents à ta disposition</h2>
 
-  <p>Chaque agent est un <strong>Projet Claude</strong> sur <span class="url">claude.ai</span>. Crée un projet par agent, colle le texte d'instructions correspondant, et utilise-le au quotidien.</p>
+  <p>Chaque agent est un <strong>Projet Claude</strong> sur <span class="url">claude.ai</span>. Une fois créé, tu l'utilises au quotidien sans tout ré-expliquer : il connaît ton site, ta voix, tes offres et tes règles.</p>
 
   <div class="callout">
-    <strong>Créer un projet Claude :</strong> claude.ai → "Projets" → "Nouveau projet" → dans "Instructions du projet", colle le texte du fichier <span class="url">agents/agent-[nom].md</span> correspondant.
+    <strong>Créer un projet :</strong> claude.ai → "Projets" → "Nouveau projet" → dans "Instructions du projet", colle le texte du fichier <span class="url">agents/agent-[nom].md</span> correspondant.
   </div>
 
   <hr class="sep"/>
 
   <h3>Agent "Site MGE" — Modifier les pages</h3>
   <p><em>Fichier : <span class="url">agents/agent-site.md</span></em></p>
+  <p>Connaît la structure du site, les couleurs, les règles de navigation. Tu lui colles un fichier HTML + ta demande → il te rend le fichier corrigé complet, prêt à uploader.</p>
 
-  <p>Cet agent connaît toute la structure du site. Tu lui colles un fichier HTML, tu décris ta modification, et il te rend le fichier corrigé prêt à uploader.</p>
-
-  <h4>Exemples de modifications</h4>
+  <h4>Ce qu'il peut faire</h4>
   <ul class="list-check">
-    <li>Changer un prix dans les prestations</li>
-    <li>Ajouter un témoignage client</li>
-    <li>Modifier une description de formule</li>
-    <li>Ajouter une réalisation dans le portfolio</li>
-    <li>Changer une photo (en lui donnant le nom du nouveau fichier)</li>
-    <li>Corriger une faute ou reformuler un texte</li>
+    <li>Modifier un texte, un titre, un prix, un témoignage</li>
+    <li>Ajouter ou mettre à jour une réalisation dans le portfolio</li>
+    <li>Changer une photo (en lui donnant le nom du nouveau fichier image)</li>
+    <li>Créer le fichier HTML d'un nouvel article de blog</li>
+    <li>Mettre à jour <span class="url">blog.html</span> et <span class="url">sitemap.xml</span> en même temps — tu uploades les 3 fichiers d'un coup</li>
   </ul>
 
   <hr class="sep"/>
 
-  <h3>Agent "Rédaction MGE" — Écrire des articles</h3>
+  <h3>Agent "Rédaction MGE" — Écrire les articles</h3>
   <p><em>Fichier : <span class="url">agents/agent-redaction.md</span></em></p>
+  <p>Connaît ta voix, ton public cible, et les 23 articles déjà publiés (évite les doublons). Rédige des articles SEO complets ciblant les bons mots-clés pour la Provence et le mariage éco-responsable.</p>
 
-  <p>Cet agent connaît ta voix, ton public cible, ton positionnement éco-responsable en Provence et la liste des 23 articles déjà publiés. Il rédige des articles SEO complets en évitant les doublons, avec 3 articles connexes à afficher en bas de page.</p>
-
-  <h4>Ce qu'il fournit à chaque article</h4>
+  <h4>Ce qu'il fournit pour chaque article</h4>
   <ul class="list-check">
     <li>Titre SEO + méta description (prêts à copier)</li>
-    <li>Article complet en 1 200 – 1 800 mots</li>
-    <li>3 articles connexes suggérés</li>
+    <li>Article complet en 1 200 – 1 800 mots, dans ta voix</li>
+    <li>3 articles connexes suggérés parmi ceux déjà publiés</li>
     <li>Description de l'image idéale</li>
+    <li>Entrée XML pour le sitemap (à transmettre à l'agent Site)</li>
   </ul>
-
-  <div class="callout callout--dim">
-    <strong>Ensuite :</strong> transmets l'article à Thomas pour intégration HTML et mise en ligne, ou demande à l'agent "Site MGE" de créer le fichier HTML si tu veux le faire toi-même.
-  </div>
 
   <hr class="sep"/>
 
   <h3>Agent "Social MGE" — Instagram &amp; Pinterest</h3>
   <p><em>Fichier : <span class="url">agents/agent-reseaux-sociaux.md</span></em></p>
+  <p>Connaît ta charte visuelle (@mygreenevents), les hashtags par catégorie, les formats Instagram et Pinterest. Quand tu publies un article, il convertit le contenu en posts sans que tu aies à tout réécrire.</p>
 
-  <p>Cet agent connaît ta charte visuelle, les bons hashtags par catégorie, le format des captions Instagram et des épingles Pinterest. Quand tu publies un article, il convertit le contenu en posts sociaux sans que tu aies à tout réécrire.</p>
-
-  <h4>Ce qu'il produit</h4>
   <table>
-    <tr><th>Demande</th><th>Ce qu'il fournit</th></tr>
-    <tr><td>Un article de blog</td><td>Caption Insta + carrousel 5 slides + 3 stories + 1 épingle Pinterest</td></tr>
+    <tr><th>Tu lui donnes</th><th>Il te fournit</th></tr>
+    <tr><td>Un article de blog</td><td>Caption Insta + carrousel 5–7 slides + 3 stories + épingle Pinterest</td></tr>
     <tr><td>Une photo de mariage</td><td>Caption complète + hashtags + description épingle</td></tr>
     <tr><td>Une annonce / actualité</td><td>Post Insta + story + épingle</td></tr>
   </table>
@@ -529,130 +263,192 @@
 
   <h3>Agent "Business MGE" — Développer ton activité</h3>
   <p><em>Fichier : <span class="url">agents/agent-business.md</span></em></p>
+  <p>Connaît tes 3 formules, tes prix, ta structure micro-entreprise et ton marché (PACA, expatriés, couples 28–38 ans). T'aide à trouver des revenus complémentaires, créer des lead magnets et améliorer ton tunnel de conversion.</p>
 
-  <p>Cet agent connaît tes 3 formules, tes prix, ta structure micro-entreprise et ton marché. Il t'aide à trouver des revenus complémentaires, des lead magnets pour capter des emails, et à améliorer ton tunnel de conversion.</p>
-
-  <h4>Ce qu'il peut faire pour toi</h4>
+  <h4>Exemples de questions à lui poser</h4>
   <ul class="list-check">
-    <li>Créer un lead magnet (guide PDF, checklist, calculateur)</li>
-    <li>Rédiger un email de bienvenue après inscription newsletter</li>
-    <li>Suggérer des offres complémentaires (coaching en ligne, templates)</li>
-    <li>T'aider à formuler un devis ou une relance client</li>
-    <li>Analyser ce qui peut te faire gagner du CA hors saison</li>
+    <li>"Aide-moi à créer un guide PDF gratuit pour capter des emails"</li>
+    <li>"Comment je peux avoir du CA en novembre–mars ?"</li>
+    <li>"Rédige un email de bienvenue pour ma newsletter"</li>
+    <li>"J'ai une cliente hésitante, aide-moi à formuler ma relance"</li>
+    <li>"Je veux vendre des templates sur Etsy, par où je commence ?"</li>
   </ul>
 </div>
 
 
-<!-- PAGE 3 : CHECKLIST MISE EN LIGNE -->
+<!-- ══ PAGE 3 : PUBLIER DU CONTENU ══ -->
 <div class="page page-break">
-  <span class="section-label">Mise en ligne</span>
-  <h2>Checklist avant de remplacer WordPress</h2>
+  <span class="section-label">Publier du contenu</span>
+  <h2>Ajouter un article de blog</h2>
 
-  <p>Avant d'écraser l'ancien site, s'assurer que tout est prêt. Coche chaque point au fur et à mesure.</p>
+  <p>Workflow complet, de l'idée à la mise en ligne :</p>
 
-  <h3>Contenu à fournir par Coralie</h3>
-  <ul class="checklist">
-    <li>Widget Instagram — code embed de LightWidget (<span class="url">lightwidget.com</span>) avec le compte @mygreenevents</li>
-    <li>Réalisations — photos + infos pour au moins 2-3 mariages (couples, lieu, date, formule, description)</li>
-    <li>Nouvelle clé API Brevo — régénérée depuis le compte et envoyée à Thomas en privé</li>
+  <div class="workflow">
+    <div class="wf-step">Agent Rédaction → article en markdown</div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-step">Agent Site → 3 fichiers HTML</div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-step">FileZilla → upload sur OVH</div>
+  </div>
+
+  <h4>Étape 1 — Rédaction</h4>
+  <p>Dans l'agent "Rédaction MGE", demande l'article avec le sujet voulu. Il te fournit le texte en markdown + l'entrée XML sitemap.</p>
+
+  <h4>Étape 2 — Intégration HTML</h4>
+  <p>Dans l'agent "Site MGE", colle le texte de l'article + l'entrée XML sitemap. Il génère <strong>3 fichiers</strong> :</p>
+  <ul class="list-check">
+    <li><span class="url">blog/articles/[slug].html</span> — le fichier de l'article</li>
+    <li><span class="url">blog.html</span> — la liste mise à jour (nouvelle carte en tête de grille)</li>
+    <li><span class="url">sitemap.xml</span> — le plan du site mis à jour pour Google</li>
   </ul>
 
-  <h3>Technique (Thomas s'en occupe)</h3>
-  <ul class="checklist">
-    <li>Fichiers PHP uploadés sur OVH via FTP (contact, newsletter, sécurité)</li>
-    <li>Widget Instagram intégré dans la page d'accueil</li>
-    <li>Portfolio réalisations complété avec les photos</li>
+  <h4>Étape 3 — Upload FileZilla</h4>
+  <p>Connecte-toi à OVH et uploade les 3 fichiers aux bons endroits. L'article est en ligne immédiatement.</p>
+
+  <div class="callout callout--ok">
+    <strong>Réseaux sociaux :</strong> une fois l'article en ligne, ouvre l'agent "Social MGE", colle le texte de l'article → il génère caption Instagram, carrousel et épingle Pinterest en une fois.
+  </div>
+
+  <hr class="sep"/>
+
+  <h2>Ajouter une réalisation dans le portfolio</h2>
+
+  <div class="workflow">
+    <div class="wf-step">Préparer les photos (ex-1.jpg…)</div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-step">Agent Site → realisations.html</div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-step">FileZilla → photos + page</div>
+  </div>
+
+  <h4>Ce que tu prépares</h4>
+  <ul class="list-check">
+    <li>Photos du mariage (5–8 idéalement), nommées avec les initiales des mariés : <span class="url">ab-1.jpg</span>, <span class="url">ab-2.jpg</span>…</li>
+    <li>Infos : prénoms des mariés, lieu + département, mois + année, formule utilisée, description du mariage, défi particulier relevé</li>
   </ul>
 
-  <h3>Le jour de la bascule</h3>
+  <h4>Ce que l'agent Site génère</h4>
+  <p>La fiche mariage complète avec galerie (clic → lightbox toutes les photos), badge formule, description SEO, encart "Défi", statistiques et tags. Il te rend le fichier <span class="url">realisations.html</span> complet.</p>
+
+  <h4>Upload FileZilla</h4>
+  <ul class="list-check">
+    <li>Photos dans le dossier <span class="url">assets/realisations/</span> sur le serveur</li>
+    <li>Fichier <span class="url">realisations.html</span> à la racine</li>
+    <li>Pas besoin de toucher au sitemap (la page est déjà indexée)</li>
+  </ul>
+</div>
+
+
+<!-- ══ PAGE 4 : MISE EN LIGNE ══ -->
+<div class="page page-break">
+  <span class="section-label">Mise en ligne sur OVH</span>
+  <h2>Checklist avant de basculer</h2>
+
+  <p>Le site est prêt. Avant de remplacer WordPress, vérifier chaque point.</p>
+
+  <h3>✅ Déjà fait</h3>
   <ul class="checklist">
-    <li>Sauvegarde des photos WordPress téléchargées en local</li>
-    <li>Upload de tous les fichiers du nouveau site via FTP (remplacement complet)</li>
-    <li>Vérification que le site s'affiche correctement sur mobile et desktop</li>
-    <li>Test du formulaire de contact (envoyer un message test)</li>
-    <li>Test du formulaire de newsletter</li>
-    <li>Vérification que les 301 redirections fonctionnent (taper une ancienne URL WordPress)</li>
+    <li class="done">Widget Instagram — Behold.so intégré en page d'accueil (1 200 vues/mois gratuites, HTTPS)</li>
+    <li class="done">Portfolio réalisations — 8 mariages documentés avec photos, galerie lightbox et descriptions SEO</li>
+    <li class="done">Clé API Brevo — insérée dans config.php (newsletter opérationnelle)</li>
+    <li class="done">Toutes les images WordPress — remplacées par des fichiers hébergés en local</li>
+    <li class="done">Redirections 301 — 34 redirections programmées dans .htaccess (SEO préservé)</li>
+    <li class="done">Sitemap.xml — 23 articles + 8 pages principales indexés</li>
+    <li class="done">Pages légales — mentions légales + CGV à jour (avril 2026, SIRET 835 309 006 00012)</li>
+  </ul>
+
+  <h3>À faire le jour J</h3>
+  <ul class="checklist">
+    <li>Uploader les fichiers PHP sur OVH via FTP : <span class="url">config.php</span>, <span class="url">send.php</span>, <span class="url">subscribe.php</span>, <span class="url">ratelimit.php</span></li>
+    <li>Uploader l'ensemble du nouveau site sur OVH (remplacement de WordPress)</li>
+    <li>Tester le formulaire de contact (envoyer un message de test vers contact@mygreenevent.fr)</li>
+    <li>Tester le formulaire newsletter (s'inscrire avec une adresse de test)</li>
+    <li>Vérifier l'affichage sur mobile et desktop</li>
+    <li>Tester une ancienne URL WordPress pour confirmer la redirection 301</li>
   </ul>
 
   <h3>Dans la semaine qui suit</h3>
   <ul class="checklist">
     <li>Soumettre le nouveau sitemap dans Google Search Console</li>
-    <li>Vérifier qu'il n'y a pas d'erreurs 404 dans Search Console</li>
-    <li>Supprimer l'installation WordPress depuis le panneau OVH</li>
+    <li>Vérifier l'absence d'erreurs 404 dans Search Console</li>
+    <li>Surveiller les erreurs 404 pendant 2–3 semaines</li>
+    <li>Supprimer l'installation WordPress depuis le panneau OVH <em>(seulement après validation complète)</em></li>
   </ul>
 
   <hr class="sep"/>
 
-  <h2>Ce que les 301 redirections font pour toi</h2>
+  <h2>Ce que les redirections font pour toi</h2>
 
-  <p>Ton ancien site WordPress avait des URLs comme <span class="url">mygreenevent.fr/mariage-green-faire-part/</span>. Ces URLs sont indexées par Google depuis des années. Le nouveau site a des URLs différentes (<span class="url">/blog/articles/mariage-green-faire-part.html</span>).</p>
+  <p>Ton ancien site WordPress avait des URLs comme <span class="url">mygreenevent.fr/mariage-green-faire-part/</span> indexées par Google depuis des années. Le nouveau site utilise <span class="url">/blog/articles/mariage-green-faire-part.html</span>.</p>
 
-  <p>Les redirections 301 sont déjà programmées dans le fichier <span class="url">.htaccess</span> du nouveau site. Elles disent à Google : <em>"Cette ancienne page existe maintenant ici."</em> Google transfère automatiquement tout le référencement acquis. Tu ne perds rien.</p>
+  <p>Les <strong>34 redirections 301</strong> déjà programmées dans <span class="url">.htaccess</span> disent à Google : <em>"Cette ancienne page existe maintenant ici."</em> Google transfère automatiquement tout le référencement.</p>
 
-  <div class="callout">
-    <strong>Résultat :</strong> Le SEO construit depuis 2018 — 25+ articles, presse nationale, backlinks — est entièrement préservé après la migration.
+  <div class="callout callout--ok">
+    <strong>Résultat :</strong> Les 23 articles de blog, les backlinks de la presse nationale (Figaro, France Info, RTL, M6) et le référencement construit depuis 2018 sont entièrement préservés après la migration.
   </div>
 </div>
 
 
-<!-- PAGE 4 : OUTILS + CONTACT -->
+<!-- ══ PAGE 5 : RESSOURCES ══ -->
 <div class="page page-break">
   <span class="section-label">Ressources</span>
-  <h2>Récapitulatif des outils</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Claude.ai</h3>
-      <p>Tes 4 agents. Crée un projet par agent. Utilise-les au quotidien pour le site, les articles, les réseaux et le business.</p>
-      <p style="margin-top:0.5rem;"><span class="url">claude.ai</span></p>
-    </div>
-    <div class="card card--dim">
-      <h3>FileZilla (FTP)</h3>
-      <p>Client FTP gratuit pour uploader les fichiers sur OVH. Connexion : identifiants FTP OVH dans ton espace client.</p>
-      <p style="margin-top:0.5rem;"><span class="url">filezilla-project.org</span></p>
-    </div>
-    <div class="card card--dim">
-      <h3>LightWidget</h3>
-      <p>Widget Instagram gratuit. Connecte-toi avec @mygreenevents et génère le code embed à envoyer à Thomas.</p>
-      <p style="margin-top:0.5rem;"><span class="url">lightwidget.com</span></p>
-    </div>
-    <div class="card">
-      <h3>Brevo</h3>
-      <p>Gestion de ta liste newsletter. Régénère la clé API dans Paramètres → Clés API et envoie-la à Thomas.</p>
-      <p style="margin-top:0.5rem;"><span class="url">brevo.com</span></p>
-    </div>
-  </div>
-
-  <hr class="sep"/>
-
-  <h2>Pour une demande de modification importante</h2>
-
-  <p>Pour tout ce qui dépasse une modification de texte ou de prix — nouvelle section, nouveau design, intégration technique — contacte Thomas Rodriguez.</p>
-
-  <div class="callout">
-    <strong>Ce qui nécessite Thomas :</strong> Nouvelle page, nouveau design, intégration d'un outil tiers, modification du formulaire de contact, ajout d'un article de blog avec mise en ligne complète, problème technique.
-  </div>
-
-  <hr class="sep"/>
-
-  <h2>Accès rapide aux fichiers agents</h2>
+  <h2>Accès rapide aux agents</h2>
 
   <table>
-    <tr><th>Agent</th><th>Fichier d'instructions</th><th>Projet Claude à créer</th></tr>
+    <tr><th>Agent</th><th>Fichier d'instructions</th><th>Nom du projet Claude</th></tr>
     <tr><td>Modifier le site</td><td><span class="url">agents/agent-site.md</span></td><td>"Site MGE"</td></tr>
     <tr><td>Rédiger des articles</td><td><span class="url">agents/agent-redaction.md</span></td><td>"Rédaction MGE"</td></tr>
     <tr><td>Instagram &amp; Pinterest</td><td><span class="url">agents/agent-reseaux-sociaux.md</span></td><td>"Social MGE"</td></tr>
     <tr><td>Business &amp; stratégie</td><td><span class="url">agents/agent-business.md</span></td><td>"Business MGE"</td></tr>
   </table>
 
-  <div class="footer">
-    <div class="footer__brand">
-      <span class="sol">S</span><span class="dot">O</span><span class="sol">L</span><span class="dot">·</span><span class="ia">IA</span>
+  <hr class="sep"/>
+
+  <h2>Outils du quotidien</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Claude.ai</h3>
+      <p>Tes 4 agents. Abonnement Pro recommandé pour utiliser les Projets. Utilisation au quotidien sans limite.</p>
+      <p style="margin-top:0.5rem;"><span class="url">claude.ai</span></p>
     </div>
+    <div class="card card--dim">
+      <h3>FileZilla</h3>
+      <p>Client FTP gratuit pour uploader les fichiers sur OVH. Identifiants FTP dans ton espace client OVH.</p>
+      <p style="margin-top:0.5rem;"><span class="url">filezilla-project.org</span></p>
+    </div>
+    <div class="card card--dim">
+      <h3>Behold.so</h3>
+      <p>Widget Instagram installé sur la page d'accueil. 1 200 vues/mois gratuites. Connecté à @mygreenevents.</p>
+      <p style="margin-top:0.5rem;"><span class="url">behold.so</span></p>
+    </div>
+    <div class="card">
+      <h3>Brevo</h3>
+      <p>Gestion de ta liste newsletter. Les inscrits depuis le site arrivent automatiquement dans ta liste Brevo.</p>
+      <p style="margin-top:0.5rem;"><span class="url">brevo.com</span></p>
+    </div>
+  </div>
+
+  <hr class="sep"/>
+
+  <h2>Que faire toi-même vs contacter Thomas ?</h2>
+
+  <table>
+    <tr><th>Tu le fais seule avec Claude</th><th>Tu contactes Thomas</th></tr>
+    <tr><td>Modifier un texte, un prix, un témoignage</td><td>Nouveau design ou nouvelle section</td></tr>
+    <tr><td>Ajouter ou modifier une réalisation</td><td>Nouvelle intégration technique</td></tr>
+    <tr><td>Publier un article de blog complet</td><td>Bug ou page qui ne s'affiche plus</td></tr>
+    <tr><td>Créer des posts Instagram / Pinterest</td><td>Modification du formulaire de contact</td></tr>
+    <tr><td>Réfléchir à ta stratégie business</td><td>Création d'une nouvelle page du site</td></tr>
+    <tr><td>Rédiger un email de nurturing</td><td>Changement d'hébergeur ou de domaine</td></tr>
+  </table>
+
+  <div class="footer">
+    <div class="footer__brand"><span class="sol">SOL</span><span class="dot">·</span><span class="ia">IA</span></div>
     <div class="footer__meta">
       thomas@sol-ia.tech &nbsp;·&nbsp; 06 50 68 20 68 &nbsp;·&nbsp; sol-ia.tech<br>
       Automatisation &middot; Intelligence artificielle &middot; Développement sur mesure<br><br>
-      Document confidentiel — Usage interne uniquement · Avril 2026
+      Document confidentiel — Usage personnel uniquement · Avril 2026
     </div>
   </div>
 </div>
