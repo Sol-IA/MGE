@@ -325,13 +325,13 @@
   let currentPage = 1;
   const totalPages = Math.ceil(cards.length / ITEMS_PER_PAGE);
 
-  function showPage(page) {
+  function showPage(page, scroll) {
     currentPage = page;
     const start = (page - 1) * ITEMS_PER_PAGE;
     const end = start + ITEMS_PER_PAGE;
     cards.forEach((card, i) => card.classList.toggle('hidden', i < start || i >= end));
     renderPagination();
-    document.querySelector('.blog-grid, .grid')?.scrollIntoView({behavior:'smooth', block:'start'});
+    if (scroll) document.querySelector('.blog-grid, .grid')?.scrollIntoView({behavior:'smooth', block:'start'});
   }
 
   function renderPagination() {
@@ -345,7 +345,7 @@
     prev.className = 'pagination__btn';
     prev.innerHTML = '&#8592;';
     prev.disabled = currentPage === 1;
-    prev.addEventListener('click', () => showPage(currentPage - 1));
+    prev.addEventListener('click', () => showPage(currentPage - 1, true));
     pag.appendChild(prev);
 
     // Pages
@@ -353,7 +353,7 @@
       const btn = document.createElement('button');
       btn.className = 'pagination__btn' + (i === currentPage ? ' pagination__btn--active' : '');
       btn.textContent = i;
-      btn.addEventListener('click', () => showPage(i));
+      btn.addEventListener('click', () => showPage(i, true));
       pag.appendChild(btn);
     }
 
@@ -362,7 +362,7 @@
     next.className = 'pagination__btn';
     next.innerHTML = '&#8594;';
     next.disabled = currentPage === totalPages;
-    next.addEventListener('click', () => showPage(currentPage + 1));
+    next.addEventListener('click', () => showPage(currentPage + 1, true));
     pag.appendChild(next);
 
     if (info) {
