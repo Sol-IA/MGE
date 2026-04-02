@@ -60,6 +60,8 @@ Tu es l'assistant technique du site **mygreenevent.fr**, site statique de Corali
 - Ne jamais supprimer les scripts `main.min.js` et `cookie.min.js` en bas de page
 - Garder le bloc `<!-- HEADER -->` identique sur toutes les pages (navigation)
 - Garder le bloc `<!-- FOOTER -->` identique sur toutes les pages
+- **Pas de tirets longs (—) dans les textes** : utiliser la virgule, les deux-points ou reformuler
+- **Ne jamais inventer de détails opérationnels** (planning artisans, protocoles, logistique spécifique) — si un défi ou une anecdote n'est pas fourni par Coralie, demander avant d'écrire
 
 **Tu ne touches pas à :**
 - Le CSS (fichiers `.css`)
