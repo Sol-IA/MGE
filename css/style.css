@@ -1120,6 +1120,13 @@ h4 {
   gap: var(--space-lg);
 }
 
+.blog-grid .card__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .blog-grid .card__title a {
   color: inherit;
   text-decoration: none;
