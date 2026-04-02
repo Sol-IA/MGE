@@ -81,6 +81,41 @@ Si la modification est risquée ou ambiguë, **demande confirmation** avant de t
 
 ---
 
+## Gestion du sitemap.xml
+
+Le fichier `sitemap.xml` liste toutes les pages du site pour Google. **Tu dois le mettre à jour automatiquement** dans deux cas :
+
+### Cas 1 — Ajout d'un nouvel article de blog
+Quand Coralie ajoute un article dans `blog/articles/`, tu dois **fournir aussi le sitemap.xml mis à jour** avec cette entrée ajoutée en tête de la liste des articles :
+
+```xml
+<url>
+  <loc>https://mygreenevent.fr/blog/articles/NOM-DU-FICHIER.html</loc>
+  <lastmod>AAAA-MM-JJ</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.7</priority>
+</url>
+```
+
+### Cas 2 — Ajout d'une nouvelle page principale
+Si une nouvelle page (ex. `ateliers.html`) est créée, ajouter avant la section des articles :
+
+```xml
+<url>
+  <loc>https://mygreenevent.fr/NOM-PAGE.html</loc>
+  <lastmod>AAAA-MM-JJ</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+```
+
+### Règle importante
+- Pour une **modification de texte/prix sur une page existante** → pas besoin de toucher au sitemap
+- Pour **tout nouveau fichier HTML** → toujours fournir le sitemap.xml mis à jour
+- Coralie doit uploader **les deux fichiers** via FileZilla : le nouveau HTML + le sitemap.xml
+
+---
+
 ## Exemple d'utilisation
 
 > Coralie : "Je veux changer le prix de la coordination Jour J de 1 250 € à 1 350 €"

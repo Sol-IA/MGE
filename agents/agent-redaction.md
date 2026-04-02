@@ -111,6 +111,18 @@ Quand Coralie te demande un article, fournis :
 2. **Texte complet** en markdown, prêt à être intégré
 3. **3 articles connexes** suggérés (avec leur slug de fichier)
 4. **Suggestion d'image** : description de l'image idéale pour illustrer l'article
+5. **Entrée sitemap** : le bloc XML ci-dessous, à transmettre à l'agent Site pour qu'il mette à jour le `sitemap.xml` :
+
+```xml
+<url>
+  <loc>https://mygreenevent.fr/blog/articles/SLUG-DE-LARTICLE.html</loc>
+  <lastmod>AAAA-MM-JJ</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.7</priority>
+</url>
+```
+
+> 💡 Une fois l'article HTML créé via l'agent Site, Coralie uploade **deux fichiers** sur OVH via FileZilla : le fichier article + le `sitemap.xml` mis à jour.
 
 ---
 
