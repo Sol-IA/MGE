@@ -61,10 +61,16 @@
 .real-card__tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:var(--space-xs); }
 .real-tag { background:var(--color-bg-green); color:var(--color-primary-dark); font-size:var(--text-xs); padding:0.25rem 0.75rem; border-radius:var(--radius-full); }
 
+/* Galerie multi-photos */
+.real-gallery-grid { display:grid; grid-template-columns:2fr 1fr; grid-template-rows:1fr 1fr; height:100%; min-height:360px; gap:3px; }
+.real-gallery-main { grid-row:1 / -1; width:100%; height:100%; object-fit:cover; display:block; }
+.real-gallery-thumb { width:100%; height:100%; object-fit:cover; display:block; }
+
 /* Responsive */
 @media(max-width:900px) {
   .real-card { grid-template-columns:1fr; }
   .real-card__gallery { min-height:260px; }
+  .real-gallery-grid { min-height:260px; grid-template-columns:2fr 1fr; }
   .real-card__info { padding:var(--space-lg); }
 }
 </style>
@@ -118,120 +124,126 @@
 <!-- Fiches -->
 <div class="real-list">
 
-  <!-- Fiche 1 -->
+  <!-- Ophélie & Laurent -->
   <div class="real-card" data-category="complete">
     <div class="real-card__gallery">
-      <div class="placeholder">
-        <span aria-hidden="true">📷</span>
-        <p>Photos à venir</p>
+      <div class="real-gallery-grid">
+        <img alt="Ophélie et Laurent — mariage champêtre Eygalières" loading="lazy" src="assets/realisations/ol-couple-1.jpg" class="real-gallery-main"/>
+        <img alt="Décoration mariage Ophélie et Laurent" loading="lazy" src="assets/realisations/ol-deco-1.jpg" class="real-gallery-thumb"/>
+        <img alt="Décoration champêtre Ophélie et Laurent" loading="lazy" src="assets/realisations/ol-deco-2.jpg" class="real-gallery-thumb"/>
       </div>
     </div>
     <div class="real-card__info">
-      <span class="real-card__badge badge--complete">Formule complète</span>
-      <h3 class="real-card__title">Léa &amp; Thomas</h3>
+      <span class="real-card__badge badge--complete">Organisation complète</span>
+      <h3 class="real-card__title">Ophélie &amp; Laurent</h3>
       <p class="real-card__location">
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-        Domaine des Pins — Aix-en-Provence · Juin 2024
+        Domaine privé familial — Eygalières (13) · Septembre 2018
       </p>
-      <p class="real-card__desc">Mariage bohème éco-responsable dans un domaine privé. Décoration florale avec des fleurs locales et séchées, traiteur végétarien, zéro déchet.</p>
+      <p class="real-card__desc">Mariage champêtre 100% en extérieur dans un domaine privé familial, organisé en 6 mois avec des mariés basés à Paris. Un vrai défi logistique avec une contrainte électrique importante sur le domaine — entièrement relevé.</p>
       <div class="real-card__stats">
-        <div class="real-stat"><strong>120</strong><span>Invités</span></div>
-        <div class="real-stat"><strong>Bohème</strong><span>Thème</span></div>
-        <div class="real-stat"><strong>Extérieur</strong><span>Lieu</span></div>
+        <div class="real-stat"><strong>110</strong><span>Invités</span></div>
+        <div class="real-stat"><strong>Champêtre</strong><span>Thème</span></div>
+        <div class="real-stat"><strong>6 mois</strong><span>Préparation</span></div>
       </div>
       <div class="real-card__tags">
-        <span class="real-tag">Coordination complète</span>
-        <span class="real-tag">Fleurs locales</span>
-        <span class="real-tag">Traiteur végétarien</span>
-        <span class="real-tag">Zéro déchet</span>
+        <span class="real-tag">100% extérieur</span>
+        <span class="real-tag">Domaine familial</span>
+        <span class="real-tag">Mariés à Paris</span>
+        <span class="real-tag">Défi électrique</span>
       </div>
     </div>
   </div>
 
-  <!-- Fiche 2 -->
+  <!-- Anne & Mathieu -->
+  <div class="real-card" data-category="complete">
+    <div class="real-card__gallery">
+      <div class="real-gallery-grid">
+        <img alt="Anne et Mathieu — mariage Provence Moulin des Gaffins" loading="lazy" src="assets/realisations/am-1.jpg" class="real-gallery-main"/>
+        <img alt="Mariage Anne et Mathieu — Vaucluse" loading="lazy" src="assets/realisations/am-3.jpg" class="real-gallery-thumb"/>
+        <img alt="Réception mariage Anne et Mathieu" loading="lazy" src="assets/realisations/am-5.jpg" class="real-gallery-thumb"/>
+      </div>
+    </div>
+    <div class="real-card__info">
+      <span class="real-card__badge badge--complete">Organisation complète</span>
+      <h3 class="real-card__title">Anne &amp; Mathieu</h3>
+      <p class="real-card__location">
+        <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        Moulin des Gaffins — Vaucluse (84) · Septembre 2019
+      </p>
+      <p class="real-card__desc">Organisation complète en 9 mois pour deux mariés expatriés à Oman. Visites de lieux et dégustations coordonnées avec les parents en leur absence. Cérémonie religieuse et réception au domaine dans une ambiance Provence authentique.</p>
+      <div class="real-card__stats">
+        <div class="real-stat"><strong>150</strong><span>Invités</span></div>
+        <div class="real-stat"><strong>Provence</strong><span>Thème</span></div>
+        <div class="real-stat"><strong>9 mois</strong><span>Préparation</span></div>
+      </div>
+      <div class="real-card__tags">
+        <span class="real-tag">Mariés expatriés</span>
+        <span class="real-tag">Organisation à distance</span>
+        <span class="real-tag">Cérémonie religieuse</span>
+        <span class="real-tag">Moulin provençal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mélanie & FX -->
   <div class="real-card" data-category="coordination">
     <div class="real-card__gallery">
-      <div class="placeholder">
-        <span aria-hidden="true">📷</span>
-        <p>Photos à venir</p>
+      <div class="real-gallery-grid">
+        <img alt="Mélanie et FX — mariage Château Grand Boise" loading="lazy" src="assets/realisations/mfx-4.jpg" class="real-gallery-main"/>
+        <img alt="Cérémonie mariage Mélanie et FX" loading="lazy" src="assets/realisations/mfx-1.jpg" class="real-gallery-thumb"/>
+        <img alt="Réception Château Grand Boise" loading="lazy" src="assets/realisations/mfx-6.jpg" class="real-gallery-thumb"/>
       </div>
     </div>
     <div class="real-card__info">
       <span class="real-card__badge badge--coordination">Coordination Jour J</span>
-      <h3 class="real-card__title">Sophie &amp; Marc</h3>
+      <h3 class="real-card__title">Mélanie &amp; FX</h3>
       <p class="real-card__location">
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-        Mas des Lavandes — Luberon · Septembre 2024
+        Château Grand Boise — Trets (13) · Septembre 2020
       </p>
-      <p class="real-card__desc">Cérémonie laïque au cœur du Luberon. Couple expatrié organisé à distance, coordination complète le Jour J pour vivre leur mariage sereinement.</p>
+      <p class="real-card__desc">Coordination Jour J d'un mariage de 170 convives au cœur de la crise sanitaire Covid. Une dizaine de prestataires coordonnés sur place, une équipe de 3 (1 wedding planner + 2 assistants) pour que les mariés puissent vivre leur jour pleinement.</p>
       <div class="real-card__stats">
-        <div class="real-stat"><strong>80</strong><span>Invités</span></div>
-        <div class="real-stat"><strong>Rustique</strong><span>Thème</span></div>
-        <div class="real-stat"><strong>Mas provençal</strong><span>Lieu</span></div>
+        <div class="real-stat"><strong>170</strong><span>Invités</span></div>
+        <div class="real-stat"><strong>Le Sud</strong><span>Thème</span></div>
+        <div class="real-stat"><strong>3</strong><span>Coordinateurs</span></div>
       </div>
       <div class="real-card__tags">
-        <span class="real-tag">Couple expatrié</span>
-        <span class="real-tag">Cérémonie laïque</span>
-        <span class="real-tag">Organisation à distance</span>
+        <span class="real-tag">Covid 2020</span>
+        <span class="real-tag">Grand château</span>
+        <span class="real-tag">10 prestataires</span>
+        <span class="real-tag">Équipe renforcée</span>
       </div>
     </div>
   </div>
 
-  <!-- Fiche 3 -->
+  <!-- David & Michael -->
   <div class="real-card" data-category="complete">
     <div class="real-card__gallery">
-      <div class="placeholder">
-        <span aria-hidden="true">📷</span>
-        <p>Photos à venir</p>
+      <div class="real-gallery-grid">
+        <img alt="David et Michael — mariage Isle-sur-la-Sorgue" loading="lazy" src="assets/realisations/dm-1.jpg" class="real-gallery-main"/>
+        <img alt="Décoration olivier mariage David et Michael" loading="lazy" src="assets/realisations/dm-3.jpg" class="real-gallery-thumb"/>
+        <img alt="Mariage extérieur Vaucluse David et Michael" loading="lazy" src="assets/realisations/dm-5.jpg" class="real-gallery-thumb"/>
       </div>
     </div>
     <div class="real-card__info">
-      <span class="real-card__badge badge--complete">Formule complète</span>
-      <h3 class="real-card__title">Camille &amp; Julien</h3>
+      <span class="real-card__badge badge--complete">Organisation complète</span>
+      <h3 class="real-card__title">David &amp; Michael</h3>
       <p class="real-card__location">
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-        Domaine de la Gloriette — Alpilles · Mai 2023
+        Domaine privé — L'Isle-sur-la-Sorgue (84) · Juillet 2021
       </p>
-      <p class="real-card__desc">Mariage champêtre avec une attention particulière portée à la décoration éco-responsable : vaisselle réutilisable, faire-part en papier recyclé, fleurs de saison.</p>
+      <p class="real-card__desc">Organisation et coordination dans une propriété privée, 100% en extérieur sous un épisode de canicule intense. Adaptation logistique en temps réel : fleurs et éléments de décoration installés au dernier moment pour conserver leur fraîcheur.</p>
       <div class="real-card__stats">
-        <div class="real-stat"><strong>150</strong><span>Invités</span></div>
-        <div class="real-stat"><strong>Champêtre</strong><span>Thème</span></div>
-        <div class="real-stat"><strong>Domaine</strong><span>Lieu</span></div>
+        <div class="real-stat"><strong>80</strong><span>Invités</span></div>
+        <div class="real-stat"><strong>Olivier</strong><span>Thème</span></div>
+        <div class="real-stat"><strong>Canicule</strong><span>Défi</span></div>
       </div>
       <div class="real-card__tags">
-        <span class="real-tag">Décoration éco</span>
-        <span class="real-tag">Vaisselle réutilisable</span>
-        <span class="real-tag">Fleurs de saison</span>
-        <span class="real-tag">Faire-part recyclé</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Fiche 4 -->
-  <div class="real-card" data-category="carte">
-    <div class="real-card__gallery">
-      <div class="placeholder">
-        <span aria-hidden="true">📷</span>
-        <p>Photos à venir</p>
-      </div>
-    </div>
-    <div class="real-card__info">
-      <span class="real-card__badge badge--carte">À la carte</span>
-      <h3 class="real-card__title">Marine &amp; Antoine</h3>
-      <p class="real-card__location">
-        <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-        Château de la Gaude — Aix-en-Provence · Octobre 2023
-      </p>
-      <p class="real-card__desc">Accompagnement à la carte centré sur la sélection des prestataires éco-responsables et la mise en place d'un repas végétarien gastronomique.</p>
-      <div class="real-card__stats">
-        <div class="real-stat"><strong>60</strong><span>Invités</span></div>
-        <div class="real-stat"><strong>Élégant</strong><span>Thème</span></div>
-        <div class="real-stat"><strong>Château</strong><span>Lieu</span></div>
-      </div>
-      <div class="real-card__tags">
-        <span class="real-tag">Sélection prestataires</span>
-        <span class="real-tag">Menu végétarien</span>
-        <span class="real-tag">Gastronomique</span>
+        <span class="real-tag">100% extérieur</span>
+        <span class="real-tag">Propriété privée</span>
+        <span class="real-tag">Adaptation canicule</span>
+        <span class="real-tag">Fleurs fraîches</span>
       </div>
     </div>
   </div>
