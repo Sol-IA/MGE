@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>La Boussole - Alignement de couple avant votre mariage | My Green Event</title>
+<meta content="Deux quiz séparés + 1 session visio de 45 min pour aligner vos priorités et poser les bases de votre budget. 99 € déductibles de votre formule." name="description"/>
+<link href="https://mygreenevent.fr/boussole.html" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="My Green Event"/>
+<meta property="og:image" content="https://mygreenevent.fr/assets/logo.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:url" content="https://mygreenevent.fr/boussole.html"/>
+<meta property="og:title" content="La Boussole - Alignement de couple avant votre mariage | My Green Event"/>
+<meta property="og:description" content="Deux quiz séparés + 1 session visio de 45 min pour aligner vos priorités et poser les bases de votre budget. 99 € déductibles de votre formule."/>
+<link href="css/style.min.css" rel="stylesheet"/>
+<link href="assets/favicon.png" rel="icon" sizes="32x32"/>
+<style>
+.b-pull {
+  border-left: 3px solid #DEBEB2;
+  padding: 0.75rem 1.5rem;
+  margin: 1.75rem 0;
+  font-family: var(--font-accent);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-primary);
+  line-height: 1.7;
+}
+.b-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 640px) {
+  .b-steps { grid-template-columns: 1fr; }
+  .b-pourqui { grid-template-columns: 1fr !important; }
+  .b-temoignages { grid-template-columns: 1fr !important; }
+}
+.b-step {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.75rem;
+  border: 1px solid #e8e8e8;
+}
+.b-step__num {
+  font-family: var(--font-accent);
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #DEBEB2;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.b-step h3 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6rem;
+}
+.b-step p {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  line-height: 1.75;
+  margin: 0;
+}
+.b-checklist {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.b-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  line-height: 1.75;
+}
+.b-checklist li svg { flex-shrink: 0; margin-top: 2px; }
+.b-tarif {
+  max-width: 520px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 2.5rem;
+  border: 1px solid #e8e8e8;
+  text-align: center;
+  box-shadow: 0 0 0 6px var(--color-bg-green);
+}
+.b-tarif__prix {
+  font-family: var(--font-accent);
+  font-size: 4.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.b-tarif__detail {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+.b-tarif__deduct {
+  background: var(--color-bg-green);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: var(--text-sm);
+  line-height: 1.75;
+  color: var(--color-text);
+  text-align: left;
+}
+.b-pourqui {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.b-pq {
+  border-radius: 10px;
+  padding: 1.75rem;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+}
+.b-pq h3 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid;
+}
+.b-pq.oui h3 { color: var(--color-primary); border-color: var(--color-primary); }
+.b-pq.non h3 { color: #DEBEB2; border-color: #DEBEB2; }
+.b-pq ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.65rem; margin: 0; }
+.b-pq ul li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: var(--text-sm); color: var(--color-text-light); line-height: 1.65; }
+.b-temoignages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.b-temoignage {
+  background: var(--color-bg-warm, #fdf6f0);
+  border-radius: 10px;
+  padding: 1.75rem;
+  border-left: 4px solid var(--color-primary);
+}
+.b-temoignage p {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin: 0;
+}
+.b-divider { width: 48px; height: 3px; background: #DEBEB2; margin: 1rem 0; }
+</style>
+</head>
+<body>
+<!-- GTM noscript -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-T9FZDWHT" style="display:none;visibility:hidden" title="Google Tag Manager" width="0"></iframe></noscript>
+<!-- HEADER -->
+<header class="header">
+<div class="header__inner">
+<a class="header__logo" href="index.html">
+<img alt="My Green Event" src="assets/logo.png"/>
+</a>
+<nav class="header__nav" id="nav">
+<a href="index.html">Accueil</a>
+<a href="prestations.html">Prestations</a>
+<a href="a-propos.html">À propos</a>
+<a href="realisations.html">Réalisations</a>
+<a href="blog.html">Blog</a>
+<a href="faq.html">FAQ</a>
+<a href="presse.html">Presse</a>
+<a class="btn btn--primary btn--sm header__cta" href="contact.html">Contact</a>
+</nav>
+<button aria-label="Menu" class="menu-toggle"><span></span><span></span><span></span></button>
+</div>
+</header>
+<!-- PAGE HEADER -->
+<div class="page-header">
+<div class="container">
+<nav class="breadcrumbs">
+<a href="index.html">Accueil</a> › <a href="prestations.html">Prestations</a> › La Boussole
+</nav>
+<span class="subtitle">Nouvelle offre</span>
+<h1>La Boussole</h1>
+<p>Un outil d'alignement de couple pour démarrer votre organisation sur de bonnes bases. Deux quiz séparés, une analyse personnalisée, une session visio de 45&nbsp;min. <strong>99&nbsp;€, déductibles de toute formule My Green Event.</strong></p>
+</div>
+</div>
+
+<!-- INTRO -->
+<section class="section">
+<div class="container">
+<div class="fade-in" style="max-width:680px;margin:0 auto;">
+
+<!-- EN BREF -->
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;text-align:center;">
+<div style="background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:1.25rem 1rem;">
+<div style="font-family:var(--font-accent);font-size:2rem;font-weight:600;color:#DEBEB2;line-height:1;">2</div>
+<div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--color-primary);margin-top:0.4rem;">Quiz séparés</div>
+<div style="font-size:var(--text-xs);color:var(--color-text-light);margin-top:0.25rem;">~20 min chacun</div>
+</div>
+<div style="background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:1.25rem 1rem;">
+<div style="font-family:var(--font-accent);font-size:2rem;font-weight:600;color:#DEBEB2;line-height:1;">1</div>
+<div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--color-primary);margin-top:0.4rem;">Tableau budgétaire</div>
+<div style="font-size:var(--text-xs);color:var(--color-text-light);margin-top:0.25rem;">Personnalisé par poste</div>
+</div>
+<div style="background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:1.25rem 1rem;">
+<div style="font-family:var(--font-accent);font-size:2rem;font-weight:600;color:#DEBEB2;line-height:1;">45'</div>
+<div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--color-primary);margin-top:0.4rem;">Session visio</div>
+<div style="font-size:var(--text-xs);color:var(--color-text-light);margin-top:0.25rem;">Avec Coralie</div>
+</div>
+</div>
+
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);">Vous venez de vous fiancer. Et déjà, les premières questions s'invitent à table. Combien de personnes&nbsp;? Mariage champêtre ou domaine de caractère&nbsp;? On fait quoi pour le budget des parents&nbsp;? Tu veux vraiment un groupe live&nbsp;?</p>
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);margin-top:1rem;">Ce ne sont pas des détails. Ce sont les premières décisions importantes de votre organisation, et elles arrivent souvent sans cadre.</p>
+<div class="b-pull">La Boussole est là pour ça.</div>
+</div>
+</div>
+</section>
+
+<!-- CE QUE J'OBSERVE -->
+<section class="section section--bg">
+<div class="container">
+<div class="fade-in" style="max-width:680px;margin:0 auto;">
+<span class="subtitle">Mon constat</span>
+<h2>Ce que j'observe depuis 2018</h2>
+<div class="b-divider"></div>
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);margin-top:1.25rem;">En six ans d'accompagnement de couples en Provence, j'ai vu beaucoup de mariages prendre un mauvais départ — non pas par manque de moyens ou de bonne volonté, mais parce que les deux partenaires n'avaient jamais vraiment comparé leurs visions.</p>
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);margin-top:1rem;">L'un rêvait de 30 personnes autour d'une grande table sous les oliviers. L'autre imaginait 120 invités et une piste de danse jusqu'à l'aube. Les deux avaient en tête un budget "raisonnable" — mais pas le même.</p>
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);margin-top:1rem;">Ces décalages, posés tôt et dans un cadre bienveillant, se règlent très bien. Ignorés trop longtemps, ils deviennent une source de stress qui s'immisce dans toute l'organisation.</p>
+<div class="b-pull">La Boussole, c'est la session que j'aurais aimé proposer dès le début à chaque couple que j'ai accompagné.</div>
+</div>
+</div>
+</section>
+
+<!-- COMMENT ÇA FONCTIONNE -->
+<section class="section section--green">
+<div class="container">
+<div class="section-header fade-in">
+<span class="subtitle">Le déroulé</span>
+<h2>Comment ça fonctionne</h2>
+<p>Un processus simple en quatre étapes, pensé pour révéler vos vraies priorités à tous les deux.</p>
+</div>
+<div class="b-steps fade-in">
+<div class="b-step">
+<div class="b-step__num">01</div>
+<h3>Vous réservez en ligne</h3>
+<p>Paiement sécurisé via Stripe. Sous 24h, vous recevez deux liens quiz par email, un pour chaque partenaire.</p>
+</div>
+<div class="b-step">
+<div class="b-step__num">02</div>
+<h3>Chacun remplit son quiz seul</h3>
+<p>Chacun répond librement, sans l'autre. Une vingtaine de questions sur vos priorités : style de mariage, nombre d'invités, enveloppe budget, postes non négociables, contraintes familiales. Environ 20 minutes, depuis n'importe quel appareil.</p>
+</div>
+<div class="b-step">
+<div class="b-step__num">03</div>
+<h3>Je prépare votre comparaison</h3>
+<p>J'analyse les deux séries de réponses côte à côte et prépare votre tableau budgétaire personnalisé par poste. Pas un modèle générique : votre tableau, avec vos chiffres et vos priorités. Je vous propose ensuite un créneau visio.</p>
+</div>
+<div class="b-step">
+<div class="b-step__num">04</div>
+<h3>On se retrouve en visio (45 min)</h3>
+<p>Ensemble, on passe en revue vos convergences et vos points de divergence. On arbitre. Vous repartez avec une vision commune, un budget par poste, et les bonnes questions pour la suite de votre organisation.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CE QUE VOUS REPARTEZ AVEC -->
+<section class="section">
+<div class="container">
+<div class="fade-in" style="max-width:680px;margin:0 auto;">
+<span class="subtitle">Les livrables</span>
+<h2>Ce que vous repartez avec</h2>
+<div class="b-divider"></div>
+<ul class="b-checklist">
+<li>
+<svg aria-hidden="true" fill="none" height="18" stroke="var(--color-primary)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="18"><path d="M5 13l4 4L19 7"></path></svg>
+Une lecture claire de vos priorités respectives et de vos points d'accord
+</li>
+<li>
+<svg aria-hidden="true" fill="none" height="18" stroke="var(--color-primary)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="18"><path d="M5 13l4 4L19 7"></path></svg>
+Un tableau de répartition budgétaire personnalisé par poste (lieu, traiteur, fleurs, musique, etc.)
+</li>
+<li>
+<svg aria-hidden="true" fill="none" height="18" stroke="var(--color-primary)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="18"><path d="M5 13l4 4L19 7"></path></svg>
+Les arbitrages essentiels faits ensemble, dans un espace neutre
+</li>
+<li>
+<svg aria-hidden="true" fill="none" height="18" stroke="var(--color-primary)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="18"><path d="M5 13l4 4L19 7"></path></svg>
+Les bonnes questions à poser pour la suite de votre organisation
+</li>
+<li>
+<svg aria-hidden="true" fill="none" height="18" stroke="var(--color-primary)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="18"><path d="M5 13l4 4L19 7"></path></svg>
+Une base solide pour avancer à deux, sans que l'organisation devienne une source de tension
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- CE QUI REND LA BOUSSOLE DIFFÉRENTE -->
+<section class="section section--bg">
+<div class="container">
+<div class="fade-in" style="max-width:680px;margin:0 auto;">
+<span class="subtitle">L'approche</span>
+<h2>Ce qui rend La Boussole différente</h2>
+<div class="b-divider"></div>
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);margin-top:1.25rem;">La plupart des outils d'aide à l'organisation s'adressent au couple comme à une entité unique. Un budget, un formulaire, une vision.</p>
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);margin-top:1rem;">Sauf que vous êtes deux. Avec deux histoires, deux familles, deux façons d'envisager cette journée.</p>
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);margin-top:1rem;">Le double quiz partenaire révèle exactement là où vous êtes alignés — et là où vous ne l'êtes pas encore. C'est cette comparaison qui rend la session humaine indispensable.</p>
+<div class="b-pull">Un algorithme ne peut pas arbitrer entre "je veux des pivoines fraîches" et "on devrait plutôt investir dans le traiteur". Moi, oui.</div>
+</div>
+</div>
+</section>
+
+<!-- TARIF -->
+<section class="section section--green" id="reserver">
+<div class="container">
+<div class="section-header fade-in">
+<span class="subtitle">Tarif unique</span>
+<h2>Réserver ma session Boussole</h2>
+</div>
+<div class="b-tarif fade-in">
+<div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.15em;color:var(--color-primary);margin-bottom:1rem;font-weight:600;">Tarif unique</div>
+<div class="b-tarif__prix">99 €</div>
+<div class="b-tarif__detail">Quiz double partenaire + tableau budgétaire personnalisé + session visio 45 min</div>
+<div class="b-tarif__deduct">Ces 99&nbsp;€ sont <strong>intégralement déductibles</strong> de toute formule My Green Event signée dans les trois mois suivant votre session. Autrement dit&nbsp;: si vous décidez de vous faire accompagner pour la suite, La Boussole ne vous aura rien coûté.</div>
+<a class="btn btn--primary" href="#" style="width:100%;">Je réserve ma session →</a>
+<p style="margin-top:0.9rem;font-size:var(--text-xs);color:var(--color-text-light);">Paiement sécurisé via Stripe</p>
+</div>
+</div>
+</section>
+
+<!-- POUR QUI -->
+<section class="section">
+<div class="container">
+<div class="section-header fade-in">
+<span class="subtitle">Public cible</span>
+<h2>Pour qui est-ce fait&nbsp;?</h2>
+</div>
+<div class="b-pourqui fade-in">
+<div class="b-pq oui">
+<h3>La Boussole est faite pour vous</h3>
+<ul>
+<li>
+<svg aria-hidden="true" fill="none" height="16" stroke="var(--color-primary)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="16"><path d="M5 13l4 4L19 7"></path></svg>
+Vous venez de vous fiancer et ne savez pas par où commencer
+</li>
+<li>
+<svg aria-hidden="true" fill="none" height="16" stroke="var(--color-primary)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="16"><path d="M5 13l4 4L19 7"></path></svg>
+Vous avez commencé à en parler, mais les conversations tournent en rond
+</li>
+<li>
+<svg aria-hidden="true" fill="none" height="16" stroke="var(--color-primary)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="16"><path d="M5 13l4 4L19 7"></path></svg>
+Vous avez un budget en tête mais pas de vision claire sur comment le répartir
+</li>
+<li>
+<svg aria-hidden="true" fill="none" height="16" stroke="var(--color-primary)" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="16"><path d="M5 13l4 4L19 7"></path></svg>
+Vous voulez déléguer, mais ne savez pas encore quelle formule vous correspond
+</li>
+</ul>
+</div>
+<div class="b-pq non">
+<h3>Elle n'est pas faite pour vous</h3>
+<ul>
+<li>
+<svg aria-hidden="true" fill="none" height="16" stroke="#DEBEB2" stroke-width="2" style="flex-shrink:0;margin-top:2px;" viewbox="0 0 24 24" width="16"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+Vous avez déjà un prestataire, un budget défini et une vision partagée solide
+</li>
+</ul>
+<p style="margin-top:1.25rem;font-size:var(--text-sm);color:var(--color-text-light);line-height:1.65;">Dans ce cas, on peut passer directement à la suite. <a href="prestations.html" style="color:var(--color-primary);font-weight:500;">Découvrez mes formules d'accompagnement →</a></p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="section section--bg">
+<div class="container">
+<div class="section-header fade-in">
+<span class="subtitle">Ils en parlent</span>
+<h2>Ce que mes couples disent</h2>
+</div>
+<div class="b-temoignages fade-in">
+<div class="b-temoignage">
+<p>"On pensait être alignés. On l'était sur l'essentiel, mais pas sur tout. La session a permis de poser des choses qu'on n'aurait pas osé se dire franchement entre nous."</p>
+</div>
+<div class="b-temoignage">
+<p>"En 45 minutes, on avait une clarté qu'on n'avait pas réussi à trouver en deux mois de conversations."</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SIGNATURE CORALIE -->
+<section class="section">
+<div class="container">
+<div class="fade-in" style="max-width:680px;margin:0 auto;">
+<span class="subtitle">Une dernière chose</span>
+<h2>Pourquoi j'ai créé La Boussole</h2>
+<div class="b-divider"></div>
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);margin-top:1.25rem;">Je suis Coralie Despinoy, wedding planner éco-responsable en Provence depuis 2018. J'ai accompagné des dizaines de couples du premier rendez-vous jusqu'au soir du mariage.</p>
+<p style="font-size:var(--text-base);line-height:1.85;color:var(--color-text-light);margin-top:1rem;">Ce que j'ai appris, c'est que les mariages qui se passent bien ne sont pas forcément ceux qui ont le plus grand budget. Ce sont ceux où les deux partenaires savaient ce qui comptait vraiment pour eux — et avaient construit leur journée autour de ça.</p>
+<div class="b-pull">La Boussole, c'est ma façon de vous aider à trouver ça, dès le départ.</div>
+</div>
+</div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section section--bg">
+<div class="container">
+<div class="cta-banner fade-in">
+<h2>Prêts à poser les bases ensemble&nbsp;?</h2>
+<p>99&nbsp;€ · Session visio de 45 min + quiz double partenaire + tableau budgétaire personnalisé.<br/><em>Les 99&nbsp;€ sont déductibles de toute formule My Green Event signée dans les 3 mois.</em></p>
+<a class="btn btn--white btn--lg" href="#">Je réserve ma session →</a>
+<p style="margin-top:1rem;font-size:var(--text-sm);opacity:0.8;">Des questions avant de vous lancer&nbsp;? <a href="contact.html" style="color:inherit;text-decoration:underline;">Contactez-moi directement</a>, je vous répondrai sous 48h.</p>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="footer__grid">
+<div class="footer__brand">
+<img alt="My Green Event" class="logo-footer" height="39" src="assets/logo.png" width="160"/>
+<p>Wedding planner éco-responsable en Provence. Coralie vous accompagne depuis 2018 dans l'organisation de mariages engagés et sur-mesure à Aix-en-Provence.</p>
+<div class="footer__social">
+<a aria-label="Facebook" href="https://www.facebook.com/mygreenevent/" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+<a aria-label="Instagram" href="https://www.instagram.com/mygreenevents" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg></a>
+<a aria-label="Pinterest" href="https://fr.pinterest.com/mygreenevent/" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"></path></svg></a>
+</div>
+</div>
+<div><h5>Navigation</h5><div class="footer__links"><a href="index.html">Accueil</a><a href="prestations.html">Prestations</a><a href="a-propos.html">À propos</a><a href="realisations.html">Réalisations</a>
+<a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="presse.html">Presse</a></div></div>
+<div><h5>Contact</h5><div class="footer__links"><a href="mailto:contact@mygreenevent.fr">contact@mygreenevent.fr</a><a href="tel:+33622146185">06 22 14 61 85</a><a>Aix-en-Provence, 13100</a></div></div>
+<div><h5>Informations</h5><div class="footer__links"><a href="contact.html">Contact</a><a href="mentions-legales.html">Mentions légales</a><a href="cgv.html">CGV</a></div></div>
+</div>
+<div class="footer__bottom">
+<span>© 2018–2026 My Green Event. Tous droits réservés.</span>
+<span>Conçu avec soin en Provence</span>
+</div>
+</div>
+</footer>
+<script src="js/main.min.js" defer></script>
+<script src="js/cookie.min.js" defer></script>
+</body>
+</html>
