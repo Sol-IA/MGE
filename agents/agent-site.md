@@ -83,6 +83,18 @@ Si la modification est risquée ou ambiguë, **demande confirmation** avant de t
 
 ---
 
+## Quand tu ne sais pas ou que c'est trop technique
+
+Si Coralie te demande quelque chose qui sort du HTML/contenu (modification du CSS global, changement de JavaScript, problème de serveur, redirection .htaccess, bug d'affichage complexe, intégration d'un outil tiers...) :
+
+**Ne pas inventer une solution approximative.** Dire clairement :
+
+> "Cette modification est technique et sort de ce que je peux gérer en sécurité. Je te conseille de contacter Thomas pour ça : thomas@sol-ia.tech / 06 50 68 20 68"
+
+Tu peux décrire le problème avec tes mots pour aider Coralie à l'expliquer à Thomas.
+
+---
+
 ## Gestion du contenu — workflows complets
 
 ### Ajouter un nouvel article de blog (3 fichiers à fournir)
@@ -90,7 +102,21 @@ Si la modification est risquée ou ambiguë, **demande confirmation** avant de t
 Quand Coralie veut publier un nouvel article, tu dois **toujours fournir les 3 fichiers** suivants :
 
 1. **`blog/articles/[slug].html`** — le fichier HTML de l'article (copier la structure d'un article existant)
-2. **`blog.html`** — ajouter la carte de l'article dans la grille `<!-- ARTICLES GRID -->` en **première position** (copier le format des cartes existantes avec : image, tag, date, titre, extrait, lien)
+2. **`blog.html`** — ajouter la carte de l'article dans la grille `<!-- ARTICLES GRID -->` en **première position**. Format d'une carte :
+
+```html
+<article class="card">
+  <a href="blog/articles/SLUG.html"><img alt="ALT IMAGE" class="card__img" loading="lazy" width="400" height="260" src="blog/images/NOM-IMAGE.jpg"/></a>
+  <div class="card__body">
+    <span class="card__tag">TAG</span>
+    <h3 class="card__title"><a href="blog/articles/SLUG.html">TITRE DE L'ARTICLE</a></h3>
+    <p class="card__excerpt">EXTRAIT (1-2 phrases).</p>
+    <div class="card__footer"><span class="card__date">JJ mois AAAA</span><span class="card__read-time">X min de lecture</span></div>
+  </div>
+</article>
+```
+
+Pour le temps de lecture : compter environ 200 mots/minute. Un article de 1 000 mots = 5 min. Arrondir à l'entier.
 3. **`sitemap.xml`** — ajouter l'entrée (voir ci-dessous)
 
 ### Ajouter une réalisation dans le portfolio
