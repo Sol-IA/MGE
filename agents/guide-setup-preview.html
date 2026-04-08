@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide Setup Preview — My Green Event</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #5c8a3c;
+  --green-light: #f0f5eb;
+  --rose: #DEBEB2;
+  --beige: #fdf6f0;
+  --text: #2d2d2d;
+  --text-light: #666;
+  --border: #e5e5e5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+}
+@media print {
+  body { font-size: 13px; }
+  .no-print { display: none; }
+  .page { page-break-after: always; }
+}
+
+/* COVER */
+.cover {
+  background: var(--green);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.cover__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+.cover h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.cover__sub {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.cover__result {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  max-width: 420px;
+  text-align: left;
+}
+.cover__result p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+.cover__result strong { opacity: 1; }
+.cover__time {
+  margin-top: 2.5rem;
+  font-size: 0.82rem;
+  opacity: 0.6;
+}
+
+/* CONTENT */
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+  margin-top: 2.5rem;
+}
+h3 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rose);
+  margin-bottom: 1.25rem;
+}
+
+/* ÉTAPES */
+.step {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  align-items: flex-start;
+}
+.step__num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--rose);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2.5rem;
+  text-align: center;
+  padding-top: 0.1rem;
+}
+.step__body h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.step__body p {
+  color: var(--text-light);
+  font-size: 0.93rem;
+  line-height: 1.75;
+}
+.step__body p + p { margin-top: 0.5rem; }
+
+/* CTA LIEN */
+.link-btn {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 0.6rem;
+}
+
+/* CODE */
+.cmd {
+  background: #1e1e1e;
+  color: #a8d8a8;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.88rem;
+  margin-top: 0.75rem;
+  display: block;
+  word-break: break-all;
+}
+
+/* CALLOUT */
+.callout {
+  background: var(--green-light);
+  border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+.callout.rose {
+  background: #fdf0eb;
+  border-color: var(--rose);
+}
+
+/* DIVIDER */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* WORKFLOW */
+.workflow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 1.5rem 0;
+}
+.wf-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  font-size: 0.92rem;
+}
+.wf-step:first-child { border-radius: 10px 10px 0 0; }
+.wf-step:last-child { border-radius: 0 0 10px 10px; border-bottom: 1px solid var(--border); }
+.wf-step__icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+.wf-step__text { color: var(--text); line-height: 1.5; }
+.wf-step__text small { color: var(--text-light); display: block; font-size: 0.82rem; }
+
+/* SECTION HEADER */
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rose);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  margin-top: 3rem;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — COVER -->
+<div class="cover page">
+  <div class="cover__label">My Green Event · Guide technique</div>
+  <h1>Voir tes modifs<br>en temps réel</h1>
+  <p class="cover__sub">Comment prévisualiser les pages de ton site sur ton Mac sans uploader sur OVH à chaque fois.</p>
+  <div class="cover__result">
+    <p><strong>Ce que tu pourras faire après ce guide :</strong><br>
+    Demander une modif à Claude, voir le résultat dans ton navigateur en quelques secondes, uploader sur OVH seulement quand c'est bon.</p>
+  </div>
+  <p class="cover__time">Setup : ~20 minutes · Une seule fois</p>
+</div>
+
+<!-- PAGE 2 — PHASE 1 : LIVE SERVER -->
+<div class="content page">
+  <span class="section-label">Phase 1 · 15 minutes</span>
+  <h2>Voir les pages en local</h2>
+  <h3>VS Code + Live Server</h3>
+
+  <div class="callout">
+    L'objectif : avoir un dossier MGE sur ton Mac avec tous les fichiers du site, et un petit serveur qui recharge automatiquement le navigateur quand tu sauvegardes un fichier.
+  </div>
+
+  <div class="step">
+    <div class="step__num">1</div>
+    <div class="step__body">
+      <h4>Télécharger le dossier MGE depuis OVH</h4>
+      <p>Ouvre FileZilla et connecte-toi à OVH comme d'habitude.</p>
+      <p>Dans le panneau de droite (serveur), sélectionne tout le dossier du site. Dans le panneau de gauche (ton Mac), navigue jusqu'au Bureau. Fais glisser le dossier du serveur vers ton Bureau.</p>
+      <p>Tu as maintenant un dossier <strong>MGE</strong> sur ton Bureau avec tous les fichiers (HTML, CSS, JS, images).</p>
+      <div class="callout rose">Tu n'as besoin de faire ça qu'une fois. Ensuite c'est ton dossier de travail local.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">2</div>
+    <div class="step__body">
+      <h4>Installer VS Code</h4>
+      <p>Va sur <strong>code.visualstudio.com</strong>, télécharge la version Mac, installe comme n'importe quelle application (glisser dans Applications).</p>
+      <a class="link-btn" href="https://code.visualstudio.com" target="_blank">code.visualstudio.com →</a>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">3</div>
+    <div class="step__body">
+      <h4>Installer l'extension Live Server</h4>
+      <p>Ouvre VS Code. Dans la colonne de gauche, clique sur l'icône Extensions (4 carrés). Tape <strong>Live Server</strong> dans la recherche. Clique sur <strong>Install</strong> sur la première extension (celle de Ritwick Dey, 50M+ téléchargements).</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">4</div>
+    <div class="step__body">
+      <h4>Ouvrir le dossier MGE dans VS Code</h4>
+      <p>Dans VS Code : <strong>File → Open Folder</strong> → sélectionne le dossier MGE sur ton Bureau.</p>
+      <p>En bas à droite de VS Code, tu vois maintenant un bouton <strong>"Go Live"</strong>. Clique dessus.</p>
+      <p>Ton navigateur s'ouvre sur <strong>localhost:5500</strong> et tu vois ton site exactement comme sur mygreenevent.fr.</p>
+      <div class="callout">C'est tout. Le serveur tourne en arrière-plan tant que VS Code est ouvert. Tu n'as plus rien à faire.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PAGE 3 — PHASE 2 : MCP -->
+<div class="content page">
+  <span class="section-label">Phase 2 · 10 minutes</span>
+  <h2>Claude écrit les fichiers<br>directement</h2>
+  <h3>MCP Filesystem dans Claude Desktop</h3>
+
+  <div class="callout">
+    L'objectif : que Claude Desktop puisse lire et écrire dans ton dossier MGE. Tu lui demandes une modif, il l'applique directement dans le fichier, Live Server recharge, tu vois le résultat. Zéro copier-coller.
+  </div>
+
+  <div class="step">
+    <div class="step__num">1</div>
+    <div class="step__body">
+      <h4>Installer Node.js</h4>
+      <p>C'est un outil technique nécessaire pour faire fonctionner le MCP. Va sur <strong>nodejs.org</strong>, télécharge la version LTS (bouton vert), installe comme une application normale.</p>
+      <a class="link-btn" href="https://nodejs.org" target="_blank">nodejs.org →</a>
+      <p style="margin-top:0.75rem;">Pour vérifier que c'est bien installé : ouvre l'application <strong>Terminal</strong> (cherche "Terminal" dans Spotlight avec Cmd+Espace), tape :</p>
+      <code class="cmd">node --version</code>
+      <p style="margin-top:0.5rem;">Si tu vois un numéro de version (ex: v20.11.0), c'est bon.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">2</div>
+    <div class="step__body">
+      <h4>Ouvrir le fichier de configuration de Claude</h4>
+      <p>Dans le Finder, appuie sur <strong>Cmd+Shift+G</strong> et colle ce chemin :</p>
+      <code class="cmd">~/Library/Application Support/Claude</code>
+      <p style="margin-top:0.5rem;">Tu vois un fichier <strong>claude_desktop_config.json</strong>. Ouvre-le avec VS Code (clic droit → Ouvrir avec → VS Code).</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">3</div>
+    <div class="step__body">
+      <h4>Ajouter le MCP Filesystem</h4>
+      <p>Remplace tout le contenu du fichier par ceci (en adaptant le chemin de ton dossier MGE) :</p>
+      <code class="cmd">{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/TON-PRENOM/Desktop/MGE"
+      ]
+    }
+  }
+}</code>
+      <div class="callout rose">Remplace <strong>TON-PRENOM</strong> par ton nom d'utilisateur Mac (celui que tu vois dans le Finder avant "Bureau").</div>
+      <p style="margin-top:0.75rem;">Sauvegarde le fichier (Cmd+S).</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">4</div>
+    <div class="step__body">
+      <h4>Redémarrer Claude Desktop</h4>
+      <p>Ferme complètement Claude (Cmd+Q), puis réouvre-le.</p>
+      <p>Dans une conversation, tu peux maintenant dire à Claude : <em>"Lis le fichier index.html dans mon dossier MGE et dis-moi ce que tu vois"</em>. S'il répond avec le contenu du fichier, c'est configuré.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- PAGE 4 — WORKFLOW QUOTIDIEN -->
+<div class="content page">
+  <span class="section-label">Au quotidien</span>
+  <h2>Ton workflow complet</h2>
+  <h3>De la demande à la mise en ligne</h3>
+
+  <div class="callout" style="margin-bottom:2rem;">
+    Avant de commencer : VS Code ouvert sur le dossier MGE, "Go Live" activé, navigateur sur localhost:5500.
+  </div>
+
+  <div class="workflow">
+    <div class="wf-step">
+      <div class="wf-step__icon">💬</div>
+      <div class="wf-step__text">
+        Tu demandes une modif à l'agent Claude
+        <small>Ex : "Modifie le prix de la coordination Jour J"</small>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-step__icon">✍️</div>
+      <div class="wf-step__text">
+        Claude écrit directement dans le fichier HTML sur ton Mac
+        <small>Grâce au MCP Filesystem — plus de copier-coller</small>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-step__icon">🔄</div>
+      <div class="wf-step__text">
+        Le navigateur se recharge automatiquement
+        <small>Live Server détecte la modification et rafraîchit</small>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-step__icon">👀</div>
+      <div class="wf-step__text">
+        Tu vois le résultat dans le navigateur
+        <small>Exactement comme sur mygreenevent.fr</small>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-step__icon">🔁</div>
+      <div class="wf-step__text">
+        Tu demandes des ajustements si besoin
+        <small>Claude modifie, Live Server recharge, tu revois</small>
+      </div>
+    </div>
+    <div class="wf-step">
+      <div class="wf-step__icon">📤</div>
+      <div class="wf-step__text">
+        Quand c'est bon : upload via FileZilla sur OVH
+        <small>Le fichier modifié est dans ton dossier MGE, prêt à uploader</small>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h3>En cas de problème</h3>
+
+  <div class="callout rose" style="margin-bottom:1rem;">
+    <strong>Le site s'affiche sans style dans le navigateur</strong><br>
+    Tu as probablement ouvert le fichier HTML directement (double-clic) au lieu de passer par Live Server. Ouvre VS Code, clique sur "Go Live", et navigue vers la page dans le navigateur via localhost:5500.
+  </div>
+
+  <div class="callout rose" style="margin-bottom:1rem;">
+    <strong>Claude ne peut plus lire/écrire les fichiers</strong><br>
+    Ferme Claude et rouvre-le. Si ça ne marche toujours pas, contacte Thomas : thomas@sol-ia.tech
+  </div>
+
+  <div class="callout rose">
+    <strong>Le bouton "Go Live" n'apparaît pas dans VS Code</strong><br>
+    L'extension Live Server n'est peut-être pas installée. Va dans Extensions (icône à gauche), cherche "Live Server", installe.
+  </div>
+
+  <hr class="divider">
+
+  <div style="text-align:center;margin-top:2rem;">
+    <p style="color:var(--text-light);font-size:0.88rem;">Un problème ? Une question ?</p>
+    <p style="margin-top:0.25rem;"><strong>Thomas</strong> · thomas@sol-ia.tech · 06 50 68 20 68</p>
+  </div>
+
+</div>
+
+</body>
+</html>

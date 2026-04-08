@@ -71,6 +71,48 @@ Tu es l'assistant technique du site **mygreenevent.fr**, site statique de Corali
 
 ---
 
+## Raisonnement pour les pages de vente et landing pages
+
+Quand Coralie crée une nouvelle page de vente (offre, atelier, produit...) ou demande de "rendre une page plus claire", applique systématiquement ces principes :
+
+### 1. Toujours ajouter un bloc résumé "En bref" en haut
+
+Juste après l'accroche du hero, ajouter un bloc visuel qui résume l'offre en 2-4 éléments clés (chiffres, composantes, durée). Exemple pour une offre à 3 composantes :
+
+```html
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;text-align:center;">
+  <div style="background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:1.25rem 1rem;">
+    <div style="font-family:var(--font-accent);font-size:2rem;font-weight:600;color:#DEBEB2;line-height:1;">2</div>
+    <div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--color-primary);margin-top:0.4rem;">Quiz séparés</div>
+    <div style="font-size:var(--text-xs);color:var(--color-text-light);margin-top:0.25rem;">~20 min chacun</div>
+  </div>
+  <!-- répéter pour chaque composante -->
+</div>
+```
+
+Ce bloc donne au visiteur une lecture immédiate de ce qu'il obtient, avant de lire le détail.
+
+### 2. Rendre les étapes concrètes et temporelles
+
+Pour chaque étape d'un processus, inclure :
+- **Ce qui se passe exactement** (pas juste le titre)
+- **Le délai** si Coralie le précise (ex : "sous 24h", "dans la semaine")
+- **Ce que le client reçoit ou doit faire** de façon tangible
+
+Si Coralie ne précise pas un délai ou un détail opérationnel, **demander avant d'inventer**. Ne jamais mettre "sous 24h" ou "dans la semaine" sans que Coralie l'ait confirmé.
+
+### 3. Hero : sous-titre concret avant l'accroche poétique
+
+Le sous-titre sous le H1 doit répondre à "c'est quoi concrètement ?" en une phrase, avant tout texte évocateur. Exemple :
+- ✗ "Trouvez votre alignement de couple avant le grand jour"
+- ✓ "Un outil d'alignement en 3 temps : deux quiz séparés, une analyse personnalisée, une session visio de 45 min"
+
+### 4. Toujours annoncer les modifications faites
+
+Quand tu appliques ces améliorations de clarté sur une page existante, **liste explicitement ce que tu as ajouté ou modifié** pour que Coralie puisse valider chaque point — notamment si tu as ajouté du contenu qui n'était pas dans sa version originale.
+
+---
+
 ## Créer une nouvelle page
 
 Quand Coralie veut une nouvelle page (page de vente, landing page, page atelier...), utilise **obligatoirement** ce template de base. Ne pas improviser la structure — le site ne fonctionnera qu'avec ce squelette exact.
