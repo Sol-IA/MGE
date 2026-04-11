@@ -101,4 +101,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Dynamic related articles ---
+  var relatedContainer = document.querySelector('[data-related]');
+  var path = window.location.pathname;
+  if (relatedContainer && path.indexOf('/blog/articles/') !== -1) {
+    var currentSlug = path.split('/').pop();
+    if (currentSlug && currentSlug.indexOf('.html') === -1) currentSlug += '.html';
+    fetch('articles.json')
+      .then(function(r) { return r.json(); })
+      .then(function(articles) {
+        var others = articles.filter(function(a) { return a.slug !== currentSlug; });
+        for (var i = others.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = others[i]; others[i] = others[j]; others[j] = tmp;
+        }
+        var picked = others.slice(0, 3);
+        var cardStyle = 'display:block;background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);transition:transform var(--transition);text-decoration:none;color:inherit;';
+        var html = picked.map(function(a) {
+          return '<a href="./' + a.slug + '" style="' + cardStyle + '" onmouseover="this.style.transform=\'translateY(-4px)\'" onmouseout="this.style.transform=\'\'">' +
+            '<img src="' + a.image + '" alt="' + a.title.replace(/"/g, '&quot;') + '" loading="lazy" width="400" height="260" style="width:100%;height:180px;object-fit:cover;"/>' +
+            '<div style="padding:1.25rem;">' +
+            '<span style="font-size:var(--text-xs);color:var(--color-primary);text-transform:uppercase;letter-spacing:0.08em;">' + a.tag + '</span>' +
+            '<h3 style="font-size:var(--text-lg);margin-top:0.5rem;line-height:1.4;">' + a.title + '</h3>' +
+            '</div></a>';
+        }).join('');
+        relatedContainer.innerHTML = html;
+      })
+      .catch(function() { /* fallback HTML statique reste visible */ });
+  }
+
 });
