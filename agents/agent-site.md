@@ -296,11 +296,11 @@ Tu peux décrire le problème avec tes mots pour aider Coralie à l'expliquer à
 
 ## Gestion du contenu — workflows complets
 
-### Ajouter un nouvel article de blog (3 fichiers à fournir)
+### Ajouter un nouvel article de blog (4 fichiers à fournir)
 
-Quand Coralie veut publier un nouvel article, tu dois **toujours fournir les 3 fichiers** suivants :
+Quand Coralie veut publier un nouvel article, tu dois **toujours fournir les 4 fichiers** suivants :
 
-1. **`blog/articles/[slug].html`** — le fichier HTML de l'article (copier la structure d'un article existant)
+1. **`blog/articles/[slug].html`** — le fichier HTML de l'article (copier la structure d'un article existant). La section articles connexes doit avoir `data-related` sur la div grille : `<div class="grid grid--3" data-related>`
 2. **`blog.html`** — ajouter la carte de l'article dans la grille `<!-- ARTICLES GRID -->` en **première position**. Format d'une carte :
 
 ```html
@@ -316,7 +316,12 @@ Quand Coralie veut publier un nouvel article, tu dois **toujours fournir les 3 f
 ```
 
 Pour le temps de lecture : compter environ 200 mots/minute. Un article de 1 000 mots = 5 min. Arrondir à l'entier.
-3. **`sitemap.xml`** — ajouter l'entrée (voir ci-dessous)
+3. **`blog/articles/articles.json`** — ajouter l'entrée du nouvel article dans le tableau JSON. Format :
+```json
+{ "slug": "SLUG.html", "title": "TITRE COMPLET", "desc": "EXTRAIT 1-2 phrases.", "tag": "TAG", "image": "../../blog/images/NOM-IMAGE.jpg" }
+```
+Ce fichier alimente les articles connexes dynamiques : le JS pioche 3 articles aléatoires parmi ce JSON pour chaque article. Le HTML statique des connexes reste en fallback SEO.
+4. **`sitemap.xml`** — ajouter l'entrée (voir ci-dessous)
 
 ### Ajouter une réalisation dans le portfolio
 
@@ -359,7 +364,7 @@ Si une nouvelle page (ex. `ateliers.html`) est créée, ajouter avant la section
 ### Règle importante
 - Pour une **modification de texte/prix sur une page existante** → pas besoin de toucher au sitemap
 - Pour **tout nouveau fichier HTML** → toujours fournir le sitemap.xml mis à jour
-- Coralie doit uploader **les deux fichiers** via FileZilla : le nouveau HTML + le sitemap.xml
+- Coralie doit uploader **les fichiers modifiés** via FileZilla : le nouveau HTML, `blog.html`, `articles.json` et `sitemap.xml`
 
 ---
 

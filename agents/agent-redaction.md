@@ -63,33 +63,13 @@ H2 : Conclusion / Mon conseil de wedding planner (200 mots)
 
 ## Articles connexes — règle obligatoire
 
-À la fin de chaque article, proposer **3 articles connexes** parmi cette liste existante. Choisir ceux qui sont thématiquement proches :
+À la fin de chaque article, proposer **3 articles connexes** thématiquement proches parmi les articles existants.
 
-| Fichier | Sujet |
-|---------|-------|
-| fleurs-locales-durables.html | Fleurs locales et durables |
-| budget-mariage-eco.html | Budget mariage éco-responsable |
-| metiers-caches-wedding-planner.html | Métiers cachés du Jour J |
-| meilleurs-outils-organiser-mariage.html | Outils pour organiser un mariage |
-| mariage-ethique-prestataires.html | Prestataires éthiques |
-| hopono-lieu-mariage-provence.html | Lieu de mariage en Provence |
-| coordination-jour-j.html | Coordination Jour J |
-| reduire-empreinte-carbone-mariage.html | Empreinte carbone mariage |
-| ceremonie-laique-vs-religieuse.html | Cérémonie laïque vs religieuse |
-| mariage-vegetarien-vegetalien.html | Mariage végétarien/végétalien |
-| 10-erreurs-mariage-eco.html | 10 erreurs mariage éco |
-| mariage-zero-dechet.html | Mariage zéro déchet |
-| les-etapes-essentielles-pour-une-planification-de-mariage-reussie.html | Étapes planification mariage |
-| cadeaux-dinvites-eco-responsables.html | Cadeaux invités éco |
-| les-tendances-de-mariage-eco-responsables-pour-2025-un-mariage-plus-vert-et-plus-ethique.html | Tendances mariage éco 2025 |
-| mariage-green-tenue-mariage-eco-responsable.html | Tenue de mariage éco |
-| mariage-green-decoration-fleurs.html | Décoration fleurs mariage green |
-| mariage-green-repas.html | Repas mariage green |
-| mariage-green-lieu-reception.html | Lieu réception mariage green |
-| mariage-green-faire-part.html | Faire-part mariage green |
-| vrai-faux-wedding-planner.html | Vrai/Faux wedding planner |
-| engagements-wedding-planner.html | Engagements wedding planner |
-| adopter-le-zero-dechet-a-aix-en-provence.html | Zéro déchet à Aix |
+**Liste des articles existants** : consulter le fichier `blog/articles/articles.json` qui contient tous les articles avec leur slug, titre, description, tag et image.
+
+> **Note** : les articles connexes dans le HTML servent de **fallback SEO** (contenu statique pour Google). Côté visiteur, un script JS (`main.js`) remplace dynamiquement ces 3 articles par 3 articles aléatoires piochés dans `articles.json`. Il faut donc toujours fournir les deux : le HTML statique dans l'article ET l'entrée dans `articles.json`.
+
+**Quand tu rédiges un nouvel article**, fournis aussi son entrée `articles.json` (voir Format de sortie ci-dessous).
 
 ---
 
@@ -122,7 +102,13 @@ Quand Coralie te demande un article, fournis :
 </url>
 ```
 
-> 💡 Une fois l'article HTML créé via l'agent Site, Coralie uploade **deux fichiers** sur OVH via FileZilla : le fichier article + le `sitemap.xml` mis à jour.
+6. **Entrée articles.json** : le bloc JSON ci-dessous, à ajouter dans `blog/articles/articles.json` pour que le nouvel article apparaisse dans les articles connexes dynamiques des autres articles :
+
+```json
+{ "slug": "SLUG.html", "title": "TITRE COMPLET", "desc": "EXTRAIT 1-2 phrases.", "tag": "TAG", "image": "../../blog/images/NOM-IMAGE.jpg" }
+```
+
+> 💡 Une fois l'article HTML créé via l'agent Site, Coralie uploade les fichiers sur OVH via FileZilla : le fichier article, `blog.html`, `sitemap.xml` et `blog/articles/articles.json`.
 
 ---
 

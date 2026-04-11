@@ -32,7 +32,9 @@ MGE/
 │   ├── coralie-portrait.jpg
 │   └── [photos des mariages]
 ├── blog/
-│   └── articles/           ← 23 articles HTML
+│   └── articles/
+│       ├── articles.json   ← Liste des articles pour connexes dynamiques
+│       └── *.html          ← 23 articles HTML
 ├── agents/                 ← System prompts des agents Claude
 ├── .htaccess               ← Sécurité + redirections 301 + GZIP
 ├── sitemap.xml
@@ -143,11 +145,12 @@ Ces fichiers existent uniquement sur le serveur OVH. Les modifier via FTP direct
 ## Ajouter un article de blog
 
 1. Créer `blog/articles/mon-slug.html` en copiant un article existant comme base
-2. Modifier : titre, meta, contenu, date, articles connexes
+2. Modifier : titre, meta, contenu, date, articles connexes (avec `data-related` sur la `<div class="grid grid--3">`)
 3. Ajouter l'article dans `blog.html` (section `<!-- ARTICLES GRID -->`)
-4. Ajouter l'entrée dans `sitemap.xml`
-5. Régénérer le CSS si des styles ont changé
-6. `git add` + `git commit` + `git push`
+4. Ajouter l'entrée dans `blog/articles/articles.json` (articles connexes dynamiques)
+5. Ajouter l'entrée dans `sitemap.xml`
+6. Régénérer le CSS si des styles ont changé
+7. `git add` + `git commit` + `git push`
 
 ## Modifier les informations de Coralie
 
