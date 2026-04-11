@@ -235,7 +235,7 @@ Quand Coralie veut une nouvelle page (page de vente, landing page, page atelier.
 <div><h5>Contact</h5><div class="footer__links"><a href="mailto:contact@mygreenevent.fr">contact@mygreenevent.fr</a><a href="tel:+33622146185">06 22 14 61 85</a><a>Aix-en-Provence, 13100</a></div></div>
 <div><h5>Informations</h5><div class="footer__links"><a href="contact.html">Contact</a><a href="mentions-legales.html">Mentions légales</a><a href="cgv.html">CGV</a></div></div>
 </div>
-<div class="footer__bottom"><span>© 2018–2026 My Green Event. Tous droits réservés.</span><span>Conçu avec soin en Provence</span></div>
+<div class="footer__bottom"><span>© 2018–2026 My Green Event. Tous droits réservés.</span><span>Conçu avec soin en Provence par <a href="https://sol-ia.tech" target="_blank" rel="noopener">SOL·IA</a></span></div>
 </div>
 </footer>
 <script src="js/main.min.js" defer></script>
