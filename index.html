@@ -20,13 +20,14 @@
 <link href="css/style.min.css" rel="stylesheet"/>
 <!-- Favicon -->
 <link href="assets/favicon.png" rel="icon" sizes="32x32"/>
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "EventPlanningBusiness",
     "name": "My Green Event",
-    "description": "Wedding planner éco-responsable en Provence. Coralie accompagne les couples depuis 2018 dans l'organisation de mariages engagés et sur-mesure à Aix-en-Provence et dans toute la région PACA.",
+    "description": "Wedding planner éco-responsable en Provence. Coralie organise des mariages engagés et sur-mesure à Aix-en-Provence et dans toute la région PACA depuis 2018.",
     "url": "https://mygreenevent.fr",
     "logo": "https://mygreenevent.fr/assets/logo.png",
     "image": "https://mygreenevent.fr/assets/AME-373-hero.jpg",
@@ -36,6 +37,7 @@
       "@type": "PostalAddress",
       "addressLocality": "Aix-en-Provence",
       "postalCode": "13100",
+      "addressRegion": "Provence-Alpes-Côte d'Azur",
       "addressCountry": "FR"
     },
     "geo": {
@@ -44,12 +46,16 @@
       "longitude": 5.4474
     },
     "areaServed": [
-      { "@type": "State", "name": "Provence-Alpes-Côte d'Azur" },
-      { "@type": "City",  "name": "Aix-en-Provence" },
-      { "@type": "City",  "name": "Marseille" },
-      { "@type": "City",  "name": "Avignon" }
+      { "@type": "City", "name": "Aix-en-Provence" },
+      { "@type": "City", "name": "Marseille" },
+      { "@type": "City", "name": "Avignon" },
+      { "@type": "City", "name": "Cavaillon" },
+      { "@type": "State", "name": "Bouches-du-Rhône" },
+      { "@type": "State", "name": "Vaucluse" },
+      { "@type": "State", "name": "Alpes-de-Haute-Provence" },
+      { "@type": "State", "name": "Var" }
     ],
-    "priceRange": "€€€",
+    "priceRange": "€€-€€€",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -61,20 +67,37 @@
     "sameAs": [
       "https://www.instagram.com/mygreenevents",
       "https://www.facebook.com/mygreenevent/",
-      "https://fr.pinterest.com/mygreenevent/"
+      "https://fr.pinterest.com/mygreenevent/",
+      "https://www.mariages.net/organisation-mariage/my-green-event--e151486",
+      "https://wa.me/33622146185"
     ],
     "founder": {
       "@type": "Person",
-      "name": "Coralie",
-      "jobTitle": "Wedding Planner"
+      "name": "Coralie Despinoy",
+      "jobTitle": "Wedding Planner Éco-Responsable",
+      "url": "https://mygreenevent.fr/a-propos.html"
     },
     "foundingDate": "2018",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "6",
+      "bestRating": "5"
+    },
     "serviceType": [
       "Organisation de mariage de A à Z",
       "Coordination du Jour J",
       "Accompagnement à la carte",
       "Mariage éco-responsable"
     ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "My Green Event",
+    "url": "https://mygreenevent.fr"
   }
   </script>
 </head>

@@ -70,6 +70,17 @@
     RewriteRule ^comment-gerer-un-budget-de-mariage-tout-en-restant-eco-responsable/?$ /blog/articles/budget-mariage-eco.html [R=301,L]
     RewriteRule ^choisir-des-fleurs-locales-et-durables-pour-votre-mariage/?$ /blog/articles/fleurs-locales-durables.html [R=301,L]
 
+    # Variante avec "en-2025" dans le slug
+    RewriteRule ^les-etapes-essentielles-pour-une-planification-de-mariage-reussie-en-2025/?$ /blog/articles/les-etapes-essentielles-pour-une-planification-de-mariage-reussie.html [R=301,L]
+
+    # Pages légales WordPress
+    RewriteRule ^mentions-legales/?$                         /mentions-legales.html [R=301,L]
+    RewriteRule ^conditions-generales-de-vente/?$            /cgv.html [R=301,L]
+
+    # Catégories WordPress
+    RewriteRule ^category/evenements/?$                      /blog.html [R=301,L]
+    RewriteRule ^category/organisation-de-mariage/?$         /blog.html [R=301,L]
+
     # Articles WordPress sans équivalent → blog
     RewriteRule ^oui-ding-festival-du-mariage-durable-decale/?$ /blog.html [R=301,L]
     RewriteRule ^latelier-du-ouiding/?$                     /blog.html [R=301,L]
