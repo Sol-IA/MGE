@@ -1007,6 +1007,7 @@ h4 {
 .page-header h1 {
   font-size: var(--text-4xl);
   margin-bottom: var(--space-sm);
+  text-align: center;
 }
 
 .page-header .subtitle {
