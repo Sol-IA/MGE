@@ -44,7 +44,7 @@ body {
 .cover {
   width: 210mm;
   min-height: 297mm;
-  background: var(--green-dark);
+  background: #fff;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -56,8 +56,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 110% 20%, rgba(255,255,255,0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at -10% 80%, rgba(92,138,60,0.3) 0%, transparent 60%);
+    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(92,138,60,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 0%, rgba(222,190,178,0.08) 0%, transparent 60%);
 }
 
 .cover__leaf-top {
@@ -65,17 +65,21 @@ body {
   top: -20px;
   right: -20px;
   width: 220px;
-  opacity: 0.12;
+  opacity: 0.08;
 }
+
+.cover__leaf-top path { fill: var(--green) !important; }
 
 .cover__leaf-bottom {
   position: absolute;
   bottom: -30px;
   left: -30px;
   width: 280px;
-  opacity: 0.1;
+  opacity: 0.06;
   transform: rotate(180deg);
 }
+
+.cover__leaf-bottom path { fill: var(--green) !important; }
 
 .cover__top {
   padding: 14mm 14mm 0;
@@ -107,15 +111,15 @@ body {
 .cover__tag {
   display: inline-block;
   margin-top: 6mm;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: var(--green-light);
+  border: 1px solid var(--green-mid);
   border-radius: 20px;
   padding: 4px 14px;
   font-size: 8pt;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--rose);
+  color: var(--green);
 }
 
 .cover__main {
@@ -139,7 +143,7 @@ body {
   font-family: var(--font-heading);
   font-size: 96pt;
   font-weight: 700;
-  color: rgba(255,255,255,0.08);
+  color: rgba(92,138,60,0.08);
   line-height: 1;
   letter-spacing: -4px;
 }
@@ -147,7 +151,7 @@ body {
 .cover__number-label {
   font-family: var(--font-accent);
   font-size: 14pt;
-  color: var(--rose);
+  color: var(--green);
   font-style: italic;
   padding-bottom: 8px;
 }
@@ -156,28 +160,28 @@ body {
   font-family: var(--font-heading);
   font-size: 34pt;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
   line-height: 1.15;
   margin-bottom: 6mm;
   max-width: 140mm;
 }
 
 .cover__title em {
-  color: var(--rose);
+  color: var(--green);
   font-style: italic;
 }
 
 .cover__divider {
   width: 50px;
   height: 2px;
-  background: var(--rose);
+  background: var(--green);
   margin-bottom: 6mm;
   border-radius: 2px;
 }
 
 .cover__subtitle {
   font-size: 12pt;
-  color: rgba(255,255,255,0.65);
+  color: var(--text-light);
   font-weight: 300;
   max-width: 120mm;
   line-height: 1.7;
@@ -185,7 +189,7 @@ body {
 
 .cover__bottom {
   padding: 10mm 14mm;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(92,138,60,0.15);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -196,7 +200,7 @@ body {
 .cover__author {
   font-family: var(--font-accent);
   font-size: 12pt;
-  color: rgba(255,255,255,0.8);
+  color: var(--text-light);
   font-style: italic;
 }
 
@@ -204,7 +208,7 @@ body {
   display: block;
   font-style: normal;
   font-weight: 600;
-  color: #fff;
+  color: var(--text);
   font-family: var(--font-body);
   font-size: 10pt;
   letter-spacing: 0.02em;
@@ -212,7 +216,7 @@ body {
 
 .cover__site {
   font-size: 9pt;
-  color: rgba(255,255,255,0.45);
+  color: var(--text-muted);
   letter-spacing: 0.05em;
 }
 
@@ -614,7 +618,7 @@ body {
 
   <div class="cover__top">
     <div class="cover__logo-wrap">
-      <img src="assets/logo-white.svg" alt="My Green Event" style="height:40px;opacity:0.95;"/>
+      <img src="assets/logo.png" alt="My Green Event" style="height:50px;"/>
     </div>
     <div class="cover__tag">Guide gratuit</div>
   </div>
