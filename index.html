@@ -344,7 +344,7 @@
 <p class="leadmagnet__legal">Pas de spam. Désinscription en un clic à tout moment.</p>
 </form>
 <div class="leadmagnet__success" id="lm-success" style="display:none;">
-            ✓ Super ! Vérifiez votre boîte mail, le guide arrive dans quelques minutes.
+            ✓ Merci ! Votre guide est prêt. <a href="guide-20-gestes-green.pdf" download style="color:var(--color-primary);font-weight:600;text-decoration:underline;">Télécharger le PDF</a>
           </div>
 </div>
 </div>
@@ -484,6 +484,12 @@
         form.style.display = 'none';
         success.style.display = 'block';
         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        var dl = document.createElement('a');
+        dl.href = 'guide-20-gestes-green.pdf';
+        dl.download = 'Guide-20-Gestes-Green-MyGreenEvent.pdf';
+        document.body.appendChild(dl);
+        dl.click();
+        document.body.removeChild(dl);
       }
     })();
   </script>
