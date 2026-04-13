@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quiz La Boussole — My Green Event</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="assets/favicon.png" rel="icon" sizes="32x32"/>
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
+<style>
+:root {
+  --color-primary: #5c8a3c;
+  --color-accent: #DEBEB2;
+  --color-bg-green: #f0f5eb;
+  --color-bg-warm: #fdf6f0;
+  --color-text: #2d2d2d;
+  --color-text-light: #5a5a5a;
+  --color-text-muted: #888;
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg-green);
+  min-height: 100vh;
+}
+
+/* Header minimal */
+.q-header {
+  background: #fff;
+  border-bottom: 1px solid rgba(92,138,60,.15);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.q-header img { height: 36px; }
+.q-header-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+}
+
+/* Contenu principal */
+.q-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* Intro */
+.q-intro {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem 2rem 1.75rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--color-accent);
+  box-shadow: var(--shadow);
+}
+.q-intro__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+.q-intro h1 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+.q-intro p {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-text-light);
+}
+.q-intro__note {
+  margin-top: 1.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-bg-green);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* Sections */
+.q-section {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+}
+.q-section__title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.q-section__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  flex-shrink: 0;
+}
+
+/* Questions */
+.q-field {
+  margin-bottom: 1.5rem;
+}
+.q-field:last-child { margin-bottom: 0; }
+.q-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.q-label span {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+.q-input, .q-select, .q-textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: #fafafa;
+  transition: border-color .2s;
+  outline: none;
+}
+.q-input:focus, .q-select:focus, .q-textarea:focus {
+  border-color: var(--color-primary);
+  background: #fff;
+}
+.q-textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Radio / Checkbox groups */
+.q-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.q-options--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.q-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  cursor: pointer;
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 6px;
+  transition: border-color .15s, background .15s;
+  font-size: 0.88rem;
+  color: var(--color-text);
+  line-height: 1.45;
+  background: #fafafa;
+}
+.q-opt:hover {
+  border-color: var(--color-accent);
+  background: var(--color-bg-warm);
+}
+.q-opt input[type="radio"],
+.q-opt input[type="checkbox"] {
+  margin-top: 1px;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+}
+.q-opt input:checked + span { color: var(--color-primary); font-weight: 500; }
+.q-opt:has(input:checked) {
+  border-color: var(--color-primary);
+  background: var(--color-bg-green);
+}
+.q-opt--tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+}
+
+/* Priorités ranking */
+.q-ranking {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+.q-rank-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.85rem;
+  background: #fafafa;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 6px;
+  font-size: 0.88rem;
+}
+.q-rank-item select {
+  width: 60px;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  background: #fff;
+  accent-color: var(--color-primary);
+  flex-shrink: 0;
+}
+.q-rank-item label { flex: 1; color: var(--color-text); }
+
+/* CTA submit */
+.q-submit {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-top: 1.25rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.q-submit p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+}
+.q-btn {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+  width: 100%;
+}
+.q-btn:hover { background: #4a7030; }
+.q-btn:disabled { background: #aaa; cursor: not-allowed; }
+
+/* Statut */
+#form-statut {
+  display: none;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* Footer */
+.q-footer {
+  text-align: center;
+  padding: 2rem 1.5rem 1rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+.q-footer a { color: var(--color-primary); text-decoration: none; }
+
+@media (max-width: 640px) {
+  .q-wrap { padding: 1.5rem 1rem 3rem; }
+  .q-section { padding: 1.5rem 1.25rem; }
+  .q-intro { padding: 1.5rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="q-header">
+  <a href="index.html"><img alt="My Green Event" src="assets/logo.png"/></a>
+  <span class="q-header-label">La Boussole — Quiz individuel</span>
+</div>
+
+<div class="q-wrap">
+
+  <!-- Intro -->
+  <div class="q-intro">
+    <div class="q-intro__label">My Green Event · La Boussole</div>
+    <h1>Votre quiz de départ</h1>
+    <p>Ce questionnaire est conçu pour être rempli <strong>seul(e)</strong>, sans votre partenaire. Il n'y a pas de bonne ou mauvaise réponse : répondez instinctivement, en vous fiant à ce que vous ressentez vraiment.</p>
+    <div class="q-intro__note">
+      Durée estimée : <strong>15 à 20 minutes</strong>. Prenez le temps qu'il vous faut. Vos réponses resteront confidentielles jusqu'à notre session visio.
+    </div>
+  </div>
+
+  <!-- Formulaire -->
+  <form action="quiz-boussole.php" method="POST" id="quiz-form">
+
+    <!-- Honeypot -->
+    <div aria-hidden="true" style="display:none;">
+      <input type="text" name="website" tabindex="-1" autocomplete="off"/>
+    </div>
+    <input type="hidden" name="couple" id="field-couple" value=""/>
+
+    <!-- Section 0 : Vous -->
+    <div class="q-section">
+      <div class="q-section__title">
+        <span class="q-section__num">A</span>
+        Vous
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="prenom">Votre prénom *</label>
+        <input class="q-input" type="text" id="prenom" name="prenom" placeholder="Votre prénom" required/>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="email">Votre email *</label>
+        <input class="q-input" type="email" id="email" name="email" placeholder="votre@email.com" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Veuillez entrer une adresse email valide"/>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">Vous êtes *</label>
+        <div class="q-options q-options--row">
+          <label class="q-opt q-opt--tag">
+            <input type="radio" name="partenaire" value="Partenaire 1" required/>
+            <span>Partenaire 1</span>
+          </label>
+          <label class="q-opt q-opt--tag">
+            <input type="radio" name="partenaire" value="Partenaire 2"/>
+            <span>Partenaire 2</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="date-mariage">Date de mariage envisagée <span>(ou période / saison)</span></label>
+        <input class="q-input" type="text" id="date-mariage" name="date_mariage" placeholder="Ex. : printemps 2026, juin 2026..."/>
+      </div>
+    </div>
+
+    <!-- Section 1 : Vision du mariage -->
+    <div class="q-section">
+      <div class="q-section__title">
+        <span class="q-section__num">1</span>
+        Votre vision du mariage
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">Quelle ambiance vous attire le plus ? <span>(plusieurs choix possibles)</span></label>
+        <div class="q-options">
+          <label class="q-opt"><input type="checkbox" name="ambiance[]" value="Épuré et naturel"/><span>Épuré et naturel : bois brut, lin, fleurs sauvages, simplicité</span></label>
+          <label class="q-opt"><input type="checkbox" name="ambiance[]" value="Romantique et floral"/><span>Romantique et floral : roses, pivoines, bougies, douceur</span></label>
+          <label class="q-opt"><input type="checkbox" name="ambiance[]" value="Festif et coloré"/><span>Festif et coloré : musique, danse, énergie, joie communicative</span></label>
+          <label class="q-opt"><input type="checkbox" name="ambiance[]" value="Intime et cosy"/><span>Intime et cosy : petit cercle, longue tablée, chaleur humaine</span></label>
+          <label class="q-opt"><input type="checkbox" name="ambiance[]" value="Élégant et raffiné"/><span>Élégant et raffiné : belle table, bons vins, art de recevoir</span></label>
+          <label class="q-opt"><input type="checkbox" name="ambiance[]" value="Atypique"/><span>Atypique : surprendre les invités, sortir des codes classiques</span></label>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="vision-phrase">En une phrase, comment vous imaginez votre mariage ? <span>(libre)</span></label>
+        <textarea class="q-textarea" id="vision-phrase" name="vision_phrase" placeholder="Ex. : « Un déjeuner sous les oliviers avec nos 40 personnes les plus chères »" style="min-height:80px;"></textarea>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">Nombre d'invités souhaité *</label>
+        <div class="q-options">
+          <label class="q-opt"><input type="radio" name="nb_invites" value="Moins de 30" required/><span>Moins de 30 — mariage très intime</span></label>
+          <label class="q-opt"><input type="radio" name="nb_invites" value="30 à 60"/><span>30 à 60 — cadre intimiste</span></label>
+          <label class="q-opt"><input type="radio" name="nb_invites" value="60 à 100"/><span>60 à 100 — mariage de taille moyenne</span></label>
+          <label class="q-opt"><input type="radio" name="nb_invites" value="100 à 150"/><span>100 à 150 — grande célébration</span></label>
+          <label class="q-opt"><input type="radio" name="nb_invites" value="Plus de 150"/><span>Plus de 150 — grande famille, beaucoup d'amis</span></label>
+          <label class="q-opt"><input type="radio" name="nb_invites" value="Pas encore d'idée"/><span>Pas encore d'idée précise</span></label>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">Quel type de lieu vous attire ? <span>(plusieurs choix possibles)</span></label>
+        <div class="q-options">
+          <label class="q-opt"><input type="checkbox" name="lieu[]" value="Domaine ou bastide en Provence"/><span>Domaine ou bastide en Provence</span></label>
+          <label class="q-opt"><input type="checkbox" name="lieu[]" value="Mas ou ferme"/><span>Mas ou ferme, esprit terroir</span></label>
+          <label class="q-opt"><input type="checkbox" name="lieu[]" value="Lieu atypique"/><span>Lieu atypique (château, cave, jardin privé...)</span></label>
+          <label class="q-opt"><input type="checkbox" name="lieu[]" value="Lieu de famille"/><span>Lieu de famille ou propriété privée</span></label>
+          <label class="q-opt"><input type="checkbox" name="lieu[]" value="Jardin ou plein air"/><span>En plein air, nature au premier plan</span></label>
+          <label class="q-opt"><input type="checkbox" name="lieu[]" value="Pas encore d'idée"/><span>Pas encore d'idée</span></label>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">La cérémonie *</label>
+        <div class="q-options">
+          <label class="q-opt"><input type="radio" name="ceremonie" value="Civile uniquement" required/><span>Civile uniquement (mairie)</span></label>
+          <label class="q-opt"><input type="radio" name="ceremonie" value="Laïque"/><span>Laïque : cérémonie personnalisée, officiant non religieux</span></label>
+          <label class="q-opt"><input type="radio" name="ceremonie" value="Religieuse"/><span>Religieuse (église, mosquée, synagogue...)</span></label>
+          <label class="q-opt"><input type="radio" name="ceremonie" value="Civile + laïque"/><span>Civile + laïque</span></label>
+          <label class="q-opt"><input type="radio" name="ceremonie" value="Civile + religieuse"/><span>Civile + religieuse</span></label>
+          <label class="q-opt"><input type="radio" name="ceremonie" value="Pas encore décidé"/><span>Pas encore décidé</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2 : Budget -->
+    <div class="q-section">
+      <div class="q-section__title">
+        <span class="q-section__num">2</span>
+        Le budget
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">Enveloppe globale que vous envisagez *</label>
+        <div class="q-options">
+          <label class="q-opt"><input type="radio" name="budget" value="Moins de 15 000 €" required/><span>Moins de 15 000 €</span></label>
+          <label class="q-opt"><input type="radio" name="budget" value="15 000 à 25 000 €"/><span>15 000 à 25 000 €</span></label>
+          <label class="q-opt"><input type="radio" name="budget" value="25 000 à 40 000 €"/><span>25 000 à 40 000 €</span></label>
+          <label class="q-opt"><input type="radio" name="budget" value="40 000 à 60 000 €"/><span>40 000 à 60 000 €</span></label>
+          <label class="q-opt"><input type="radio" name="budget" value="Plus de 60 000 €"/><span>Plus de 60 000 €</span></label>
+          <label class="q-opt"><input type="radio" name="budget" value="Pas encore défini"/><span>Pas encore défini</span></label>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">Qui contribue financièrement ? *</label>
+        <div class="q-options">
+          <label class="q-opt"><input type="radio" name="financement" value="Vous seuls" required/><span>Vous deux uniquement</span></label>
+          <label class="q-opt"><input type="radio" name="financement" value="Vos familles participent"/><span>Vos familles participent (au moins partiellement)</span></label>
+          <label class="q-opt"><input type="radio" name="financement" value="À définir"/><span>À définir avec les familles</span></label>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="budget-incontournable">Le poste sur lequel vous ne transigerez pas <span>(là où vous êtes prêt(e) à mettre plus si besoin)</span></label>
+        <input class="q-input" type="text" id="budget-incontournable" name="budget_incontournable" placeholder="Ex. : la photo, le traiteur, le lieu..."/>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="budget-economie">Le poste où vous seriez prêt(e) à faire des économies <span>(sans que ça vous manque vraiment)</span></label>
+        <input class="q-input" type="text" id="budget-economie" name="budget_economie" placeholder="Ex. : la décoration florale, les faire-part, les cadeaux invités..."/>
+      </div>
+    </div>
+
+    <!-- Section 3 : Priorités -->
+    <div class="q-section">
+      <div class="q-section__title">
+        <span class="q-section__num">3</span>
+        Vos priorités
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">Classez ces postes selon leur importance pour vous <span>(1 = le plus important)</span></label>
+        <div class="q-ranking">
+          <div class="q-rank-item">
+            <select name="priorite_lieu" aria-label="Priorité lieu"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <label>Le lieu de réception</label>
+          </div>
+          <div class="q-rank-item">
+            <select name="priorite_traiteur" aria-label="Priorité traiteur"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <label>Le traiteur / la cuisine</label>
+          </div>
+          <div class="q-rank-item">
+            <select name="priorite_photo" aria-label="Priorité photo"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <label>La photo / vidéo</label>
+          </div>
+          <div class="q-rank-item">
+            <select name="priorite_musique" aria-label="Priorité musique"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <label>La musique (DJ, groupe live...)</label>
+          </div>
+          <div class="q-rank-item">
+            <select name="priorite_fleurs" aria-label="Priorité fleurs"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <label>Les fleurs / la décoration</label>
+          </div>
+          <div class="q-rank-item">
+            <select name="priorite_tenue" aria-label="Priorité tenue"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <label>La tenue (robe, costume)</label>
+          </div>
+          <div class="q-rank-item">
+            <select name="priorite_hebergement" aria-label="Priorité hébergement"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <label>L'hébergement des invités</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">L'éco-responsabilité dans votre mariage *</label>
+        <div class="q-options">
+          <label class="q-opt"><input type="radio" name="eco" value="Très important pour moi" required/><span>Très important : c'est une valeur centrale, je veux que ça transparaisse</span></label>
+          <label class="q-opt"><input type="radio" name="eco" value="Plutôt oui si possible"/><span>Plutôt oui : j'aime l'idée, sans que ce soit à tout prix</span></label>
+          <label class="q-opt"><input type="radio" name="eco" value="Peu important pour moi"/><span>Peu important pour moi personnellement</span></label>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="non-negociable">Y a-t-il quelque chose d'indispensable pour vous, pas encore mentionné ? <span>(animation, activité, élément de décoration, tradition...)</span></label>
+        <textarea class="q-textarea" id="non-negociable" name="non_negociable" placeholder="Dites-moi ce qui est non négociable pour vous..." style="min-height:80px;"></textarea>
+      </div>
+    </div>
+
+    <!-- Section 4 : Contraintes -->
+    <div class="q-section">
+      <div class="q-section__title">
+        <span class="q-section__num">4</span>
+        Les contraintes
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="contraintes-famille">Y a-t-il des contraintes ou attentes familiales importantes à prendre en compte ? <span>(libre)</span></label>
+        <textarea class="q-textarea" id="contraintes-famille" name="contraintes_famille" placeholder="Ex. : famille du côté de l'un qui vient de loin, tradition religieuse, beau-père qui veut absolument un orchestre..."></textarea>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">Avez-vous déjà retenu des prestataires ? *</label>
+        <div class="q-options">
+          <label class="q-opt"><input type="radio" name="prestataires_retenus" value="Aucun pour l'instant" required/><span>Aucun pour l'instant</span></label>
+          <label class="q-opt"><input type="radio" name="prestataires_retenus" value="Quelques-uns"/><span>Quelques-uns (lieu, photographe...)</span></label>
+          <label class="q-opt"><input type="radio" name="prestataires_retenus" value="La plupart sont déjà choisis"/><span>La plupart sont déjà choisis</span></label>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="inquietude">Quelle est votre principale inquiétude concernant l'organisation ? <span>(si vous en avez une)</span></label>
+        <textarea class="q-textarea" id="inquietude" name="inquietude" placeholder="Ex. : tenir le budget, trouver le bon lieu, gérer les familles, ne pas savoir par où commencer..." style="min-height:80px;"></textarea>
+      </div>
+    </div>
+
+    <!-- Section 5 : Pour Coralie -->
+    <div class="q-section">
+      <div class="q-section__title">
+        <span class="q-section__num">5</span>
+        Pour la session visio
+      </div>
+
+      <div class="q-field">
+        <label class="q-label">Qu'attendez-vous principalement de cette session de 45 minutes ? <span>(plusieurs choix possibles)</span></label>
+        <div class="q-options">
+          <label class="q-opt"><input type="checkbox" name="attentes[]" value="Clarifier nos priorités ensemble"/><span>Clarifier nos priorités ensemble</span></label>
+          <label class="q-opt"><input type="checkbox" name="attentes[]" value="Avoir un budget réaliste par poste"/><span>Avoir un budget réaliste par poste</span></label>
+          <label class="q-opt"><input type="checkbox" name="attentes[]" value="Comprendre nos points de divergence"/><span>Comprendre nos points de divergence sans se disputer</span></label>
+          <label class="q-opt"><input type="checkbox" name="attentes[]" value="Savoir par où commencer"/><span>Savoir par où commencer concrètement</span></label>
+          <label class="q-opt"><input type="checkbox" name="attentes[]" value="Avoir un avis professionnel"/><span>Avoir l'avis d'une professionnelle sur notre situation</span></label>
+          <label class="q-opt"><input type="checkbox" name="attentes[]" value="Autre"/><span>Autre</span></label>
+        </div>
+      </div>
+
+      <div class="q-field">
+        <label class="q-label" for="message-coralie">Un message libre pour Coralie <span>(vos impressions, vos questions, ce que vous n'avez pas pu dire ci-dessus)</span></label>
+        <textarea class="q-textarea" id="message-coralie" name="message_coralie" placeholder="Tout ce que vous souhaitez partager..."></textarea>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="q-submit">
+      <div id="form-statut"></div>
+      <p>En envoyant ce formulaire, vous acceptez que vos réponses soient transmises à Coralie Despinoy dans le cadre de La Boussole. Vos données ne seront pas partagées avec des tiers.</p>
+      <button class="q-btn" type="submit" id="btn-submit">Envoyer mes réponses</button>
+    </div>
+
+  </form>
+
+</div>
+
+<div class="q-footer">
+  <a href="index.html">My Green Event</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a>
+</div>
+
+<script>
+// Pré-remplir le champ couple depuis l'URL (?couple=NomCouple)
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var couple = params.get('couple');
+  if (couple) {
+    document.getElementById('field-couple').value = decodeURIComponent(couple);
+  }
+})();
+
+// Feedback visuel sur submit
+document.getElementById('quiz-form').addEventListener('submit', function(){
+  var btn = document.getElementById('btn-submit');
+  btn.textContent = 'Envoi en cours...';
+  btn.disabled = true;
+});
+
+// Message statut depuis URL (après redirection)
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var statut = params.get('statut');
+  var el = document.getElementById('form-statut');
+  if (statut === 'ok') {
+    el.style.display = 'block';
+    el.style.background = '#f0f5eb';
+    el.style.color = '#5c8a3c';
+    el.style.border = '1px solid #c3daa8';
+    el.textContent = 'Vos réponses ont bien été envoyées. Merci !';
+  } else if (statut === 'erreur') {
+    el.style.display = 'block';
+    el.style.background = '#fff0f0';
+    el.style.color = '#c0392b';
+    el.style.border = '1px solid #f0c0c0';
+    el.textContent = 'Une erreur est survenue. Merci de réessayer ou de contacter Coralie directement.';
+  }
+})();
+</script>
+</body>
+</html>

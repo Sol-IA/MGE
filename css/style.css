@@ -655,6 +655,7 @@ h4 {
 
 .service-card .btn {
   margin-top: auto;
+  padding-top: var(--space-md);
   align-self: center;
 }
 
@@ -1480,7 +1481,9 @@ h4 {
 
 @media (max-width: 768px) {
   .leadmagnet { grid-template-columns: 1fr; }
-  .leadmagnet__visual { display: none; }
+  .leadmagnet__visual { order: -1; }
+  .leadmagnet__guide { width: 160px; height: 210px; }
+  .leadmagnet__guide-number { font-size: 3rem; }
   .leadmagnet__title { font-size: var(--text-xl); }
 }
 
